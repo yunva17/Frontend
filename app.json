@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "dining-together",
-    "slug": "dining-together",
+    "name": "dinig-together",
+    "slug": "dinig-together",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
