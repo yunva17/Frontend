@@ -4,12 +4,27 @@ const color={
     white: "#ffffff",
     black: "#000000",
     red: "#ff0000",
+    grey: "#a6a6a6",
 };
 
-const theme = {
+export const theme = {
     background: color.white,
-
+    text: color.black,
+    errorText: color.red,
+    
     titleColor: color.blue,
     userButton: color.blue,
-    storeBitton: color.skyBlue,
+    storeButton: color.skyBlue,
+    buttonTextColor: color.white,
+
+    label: color.grey,
+    inputPlaceholder: color.grey,
+    imputBorder: color.grey,
+
+    buttonBackground: color.blue,
+    buttonUnfilledTitle: color.white,
+    buttonUnfilledBackground: color.skyBlue,
+
+    spinnerBakcground: color.black,
+    spinnerIndicator: color.white,
 };
