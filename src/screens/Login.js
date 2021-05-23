@@ -78,7 +78,7 @@ const Login = ({navigation}) => {
             </Letter>
             <Button title="로그인" onPress={_handleLoginButtonPress} />
             <Button title="회원가입" onPress={() => {
-                navigation.navigate("Signup");
+                navigation.navigate("Mode");
             }}
             isFilled={false} />
         </Container>

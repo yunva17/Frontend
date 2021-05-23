@@ -23,16 +23,17 @@ const Mode = ({navigation}) => {
     return (
         <Container>
             <Title>회식 모아</Title>
-            <ModeButton title="User" 
-            onPress={() => {
+            <ModeButton title= "User"
+                onPress={() => {
                 setMode('User');
-                navigation.navigate("Login");
+                navigation.navigate("Signup",{ mode: 'User' });
             }}
             containerStyle={{marginBottom: 60}}
             />
-            <ModeButton title="Store" onPress={() => {
-                setMode('Store')
-                navigation.navigate("Login");
+            <ModeButton title= "Store"
+                onPress={() => {
+                setMode('Store');
+                navigation.navigate("Signup",{ mode: 'Store' });
             }}/>
         </Container>
     );
