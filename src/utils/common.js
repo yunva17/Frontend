@@ -7,3 +7,8 @@ export const removeWhitespace = text => {
     const regex = /\s/g;
     return text.replace(regex, "");
 };
+
+export const validatePassword = password => {
+    const regex = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
+    return regex.test(password);
+};
