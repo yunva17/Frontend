@@ -3,9 +3,9 @@ import styled from "styled-components/native";
 import PropTypes from "prop-types";
 
 const Container = styled.View`
-flex-direction: column;
-width: 100%;
-margin: 10px 0;
+  flex-direction: column;
+  width: 100%;
+  margin: 10px 0;
 `;
 
 const Label = styled.Text`
@@ -39,6 +39,7 @@ const Input = forwardRef(
       isPassword,
       returnKeyType,
       maxLength,
+      keyboardType,
     },
     ref
   ) => {
@@ -66,6 +67,7 @@ const Input = forwardRef(
           autoCorrect={false}
           textContentType="none" // iOS only
           underlineColorAndroid="transparent" // Android only
+          keyboardType={keyboardType}
         />
       </Container>
     );
@@ -88,6 +90,7 @@ Input.propTypes = {
   maxLength: PropTypes.number,
   onChangeText: PropTypes.func,
   onSubmitEditing: PropTypes.func,
+  keyboardType: PropTypes.string,
 };
 
 export default Input;
