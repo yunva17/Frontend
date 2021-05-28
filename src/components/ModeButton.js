@@ -5,7 +5,7 @@ import styled from "styled-components/native";
 import PropTypes from "prop-types";
 
 const Container = styled.TouchableOpacity`
-    background-color: ${({title, theme})=> title === "Store"? theme.storeButton : theme.userButton};
+    background-color: ${({theme})=> theme.userButton};
     align-items: center;
     border-radius: 4px;
     width: 60%;

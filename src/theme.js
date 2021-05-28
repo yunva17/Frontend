@@ -16,15 +16,20 @@ export const theme = {
     userButton: color.blue,
     storeButton: color.skyBlue,
     buttonTextColor: color.white,
+    buttonBackground: color.blue,
+    buttonUnfilledTitle: color.white,
+    buttonUnfilledBackground: color.skyBlue,
+    buttonCompleted: color.grey,
 
+    
     label: color.grey,
     inputPlaceholder: color.grey,
     imputBorder: color.grey,
 
-    buttonBackground: color.blue,
-    buttonUnfilledTitle: color.white,
-    buttonUnfilledBackground: color.skyBlue,
+   
 
     spinnerBakcground: color.black,
     spinnerIndicator: color.white,
+
+    imageBackground: color.grey,
 };

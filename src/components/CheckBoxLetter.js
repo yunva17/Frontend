@@ -8,13 +8,13 @@ const Container = styled.TouchableOpacity`
     background-color: ${({theme})=> theme.background};
     align-items: center;
     width: auto;
-    padding: 0 5px; 
+    padding: 10px 20px; 
 `;
 
 const Title = styled.Text`
     height: 30px;
     line-height: 30px;
-    font-size: 16px
+    font-size: 20px
     font-weight: bold;
     color: ${({theme})=> theme.text};
 `;
