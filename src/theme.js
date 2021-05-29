@@ -11,8 +11,10 @@ export const theme = {
     background: color.white,
     text: color.black,
     errorText: color.red,
-    
+    icon: color.white,
+
     titleColor: color.blue,
+    smallTitle: color.grey,
     userButton: color.blue,
     storeButton: color.skyBlue,
     buttonTextColor: color.white,

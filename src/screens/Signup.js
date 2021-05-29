@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from "styled-components/native";
-import { Input,Button,CheckBoxLetter,Image } from '../components';
+import { Input,Button,Image } from '../components';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { validateEmail, removeWhitespace, validatePassword } from '../utils/common';
 
@@ -199,18 +199,6 @@ const Signup = ({ navigation, route }) => {
                     returnKeyType="done"
                 />
                 <CheckBoxContainer>
-                    {/* <CheckBoxLetter 
-                    hasIcon={true}
-                    title="남자"
-                    type={isMan? images.checked : images.unchecked}
-                    onPress={()=> setIsMan(!isMan)}
-                    />
-                    <CheckBoxLetter
-                    hasIcon={true}
-                    title="여자" 
-                    type={isWoman? images.checked : images.unchecked}
-                    onPress={()=> setIsWoman(!isWoman)}
-                    /> */}
                     <Button 
                     title="남자"
                     containerStyle={{ flex: 1}}
