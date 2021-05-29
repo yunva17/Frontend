@@ -1,105 +1,80 @@
-import React,{useState} from 'react';
+//회원가입 이미지 등록
+import React, { useEffect, useState } from 'react';
+import { Platform, Alert} from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
-import { useEffect } from 'react';
-import {Platform, Alert} from "react-native";
-import * as ImagePicker from "expo-image-picker";
-import {} from "../components/Button";
+import SmallButton from "./SmallButton";
 
-const Container = styled.View` 
-    height:80%;
-    width: 100%;
-    margin-top: 0;
+const Container = styled.View`
+  flex-direction: column;
+  width: 100%;
+  margin: 10px 0;
+`;
+
+const Label = styled.Text`
+  font-size: 14px;
+  font-weight: 600;
+  color: ${({theme}) => theme.label};
 `;
 
 const StyledImage = styled.Image`
-    background-color: ${({theme})=> theme.imageBackground};
-    height: 100%;
-    width: 100%;
-   
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
 `;
 
-const ButtonContainner = styled.TouchableOpacity`
-    background-color: ${({theme, uploaded})=> uploaded? theme.buttonCompleted : theme.buttonBackground};
-    align-items: center;
-    border-radius: 4px;
-    width: 100%;
-    padding: 10px;
-`;
+const Image = ({url, label, onChangeImage}) => {
 
-const ButtonTitle = styled.Text`
-    height: 30px;
-    line-height: 30px;
-    font-size: 16px;
-    font-weight: bold;
-    color: ${({theme})=> theme.buttonTextColor};
-`;
-
-
-
-    const Image = ({url, imageStyle, onChangeImage, showButton}) => {
-    const [text, setText] = useState("증명 서류 사진 등록");
     const [uploaded, setUploaded] = useState(false);
-    useEffect(()=> {
+
+    useEffect(() => {
         (async () => {
-            try {
-                if(Platform.OS !== "web") {
-                    const {status} = await ImagePicker.requestMediaLibraryPermissionsAsync();
-                    if (status !== "granted") {
-                        Alert.alert(
-                            "Photo Permission",
-                            "Please turn on the camera roll permission."
-                        );
-                    }
-                }
-            }catch(e) {
-                Alert.alert("Photo Permission Error", e.message);
+          if (Platform.OS !== 'web') {
+            const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+            if (status !== 'granted') {
+              alert('사진 권한 허가가 필요합니다');
             }
+          }
         })();
-    },[]);
+    }, []);
 
     const _handleEditButton = async () => {
-        
         try {
-            const result = await ImagePicker.launchImageLibraryAsync({
+            let result = await ImagePicker.launchImageLibraryAsync({
                 mediaTypes: ImagePicker.MediaTypeOptions.Images,
                 allowsEditing: true,
-                aspect: [1, 1],
+                aspect: [3,4],
                 quality: 1,
-            });
+              });
 
-            if(!result.cancelled) {
+              if(!result.cancelled) { 
                 onChangeImage(result.uri);
-            }
+              }
 
-            setText("증명 서류 등록 완료");
-            setUploaded(true);
-        }catch (e) {
-            Alert.alert("Photo Error", e.message);
+              setUploaded(true);
+
+        } catch(e) {
+            Alert.alert('사진 오류', e.message);
         }
-    };
-
-    return (
-        <Container uploaded={uploaded}>
-            <StyledImage source={{uri: url}} style={imageStyle} />
-            { showButton && 
-            <ButtonContainner onPress={_handleEditButton} uploaded={uploaded}>
-                <ButtonTitle>{text}</ButtonTitle>
-            </ButtonContainner> }
+      };
+    return(
+        <Container>
+            <Label>{label}</Label>
+            {url && <StyledImage source={{ uri: url }} />}
+            <SmallButton title="첨부파일" onPress={_handleEditButton} uploaded={uploaded}/>
         </Container>
+         
     );
 };
-
 Image.defaultProps = {
-    onChangeImage: ()=>{},
-    showButton: false,
+  onChangeImage: () => {},
 }
 
 Image.propTypes = {
-    uri: PropTypes.string,
-    imageStyle: PropTypes.object,
-    onChangeImage: PropTypes.func,
-    showButton: PropTypes.bool,
+  label: PropTypes.string.isRequired,
+  onChangeImage: PropTypes.func,
+  uri: PropTypes.string,
 }
 
 export default Image;

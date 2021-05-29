@@ -5,5 +5,7 @@ import Spinner from "./Spinner";
 import LogInLetter from "./LogInLetter"
 import Image from "./Image";
 import IconButton from "./IconButton";
+import RadioButton from "./RadioButton";
+import SmallButton from "./SmallButton"
 
-export {Spinner, ModeButton, Image, IconButton ,Input,Button, LogInLetter};
+export {Spinner, ModeButton, Image, SmallButton, RadioButton,IconButton ,Input,Button, LogInLetter};

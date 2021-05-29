@@ -75,6 +75,7 @@ const Input = forwardRef(
       hasButton,
       buttonTitle,
       onPress,
+      keyboardType,
     },
     ref
   ) => {
@@ -101,6 +102,7 @@ const Input = forwardRef(
           secureTextEntry={isPassword}
           returnKeyType={returnKeyType}
           maxLength={maxLength}
+          keyboardType={keyboardType}
           autoCapitalize="none"
           autoCorrect={false}
           textContentType="none" // iOS only
@@ -142,6 +144,7 @@ Input.propTypes = {
   hasButton: PropTypes.bool,
   buttonTitle: PropTypes.string,
   onPress: PropTypes.func,
+  keyboardType: PropTypes.string,
 };
 
 export default Input;

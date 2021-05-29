@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from "styled-components/native";
-import { Input,Button,Image } from '../components';
+import { Input,Button,Image, RadioButton } from '../components';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { validateEmail, removeWhitespace, validatePassword } from '../utils/common';
 
@@ -28,21 +28,35 @@ const ErrorText = styled.Text`
     color: ${({ theme }) => theme.errorText};
 `;
 
-const CheckBoxContainer = styled.View`
-    flex-direction: row;
-    margin-bottom: 10px;
+const UserView = styled.View`
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: ${({theme})=> theme.background};
+    width: 100%;
 `;
 
-const ImageContainer = styled.View`
-    margin: 20px;
+const RadioView = styled.View`
+    flex: 1;
+    flex-direction: row;
     width: 100%;
-    height: 250px;
-    background-color:  ${({theme})=> theme.imageBackground};
+    margin-top: 10px;
+    margin-left: 0;
+`;
+
+const RadioTitle = styled.Text`
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 10px;
+    color: ${({theme}) => theme.label};
+    margin-top: 5px;
 `;
 
 const Signup = ({ navigation, route }) => {
 
+    //별명
     const [userId, setuserId] = useState('');
+    //아이디인 이메일
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
@@ -131,12 +145,6 @@ const Signup = ({ navigation, route }) => {
         //서버 연동 후 이메일 인증 
 
 
-        const _handleLastInput = () => {
-            if(route.params.mode==="User"){
-                ageRef.current.focus();
-            }
-        };
-
     return (
         <KeyboardAwareScrollView
         extraScrollHeight={20}
@@ -182,14 +190,15 @@ const Signup = ({ navigation, route }) => {
                 label="닉네임"
                 value={userId}
                 onChangeText={ text => setuserId(removeWhitespace(text))}
-                onSubmitEditing={_handleLastInput}
+                onSubmitEditing= { route.params.mode === 'User' ? 
+                () => ageRef.current.focus() : null }
                 placeholder="닉네임을 입력하세요"
                 returnKeyType= {route.params.mode === "User"? "next" : "done"}
             />
 
         
             { route.params.mode === 'User' && (
-                <>
+                <UserView>
                 <Input
                     ref={ageRef}
                     label="나이"
@@ -197,38 +206,40 @@ const Signup = ({ navigation, route }) => {
                     onChangeText={text => setAge(removeWhitespace(text))}
                     placeholder="나이를 입력하세요"
                     returnKeyType="done"
+                    keyboardType="number-pad"
                 />
-                <CheckBoxContainer>
-                    <Button 
-                    title="남자"
-                    containerStyle={{ flex: 1}}
-                    onPress={()=>{
-                        setIsMan(!isMan);
-                        setIsWoman(false);
-                    }}
-                    isFilled={isMan? true : false}
-                    />
-                    <Button 
-                    title="여자"
-                    containerStyle={{flex: 1}}
-                    onPress={()=>{
-                        setIsWoman(!isWoman);
-                        setIsMan(false);
-                    }}
-                    isFilled={isWoman? true : false}
-                    />
-                </CheckBoxContainer>
-                </>
+                <RadioTitle>성별</RadioTitle>
+                <RadioView>
+                        <RadioButton
+                            label="남자"
+                            value={isMan}
+                            status={ isMan? 'checked' : 'unchecked' }
+                            onPress={()=>{
+                                setIsMan(!isMan);
+                                setIsWoman(false);
+                            }}
+                        />
+                        <RadioButton
+                            label="여자"
+                            value={isWoman}
+                            status={ isWoman? 'checked' : 'unchecked' }
+                            onPress={()=>{
+                                setIsWoman(!isWoman);
+                                setIsMan(false);
+                            }}
+                        />
+                    </RadioView>
+                </UserView>
             )}
             
     
-            { route.params.mode === 'Store' && (
-                <>
-                <ImageContainer>
-                    <Image url={photoUrl} onChangeImage={url=> setPhotoUrl(url)} showButton />
-                </ImageContainer>
-                </>
-            
+           {/* 업체 서류 추가 */}
+           { route.params.mode === 'Store' && (
+                <Image 
+                    label= "서류"
+                    url={photoUrl}
+                    onChangeImage={url => setPhotoUrl(url)}
+                />   
             )}
             <ErrorText>{errorMessage}</ErrorText>
             <Button

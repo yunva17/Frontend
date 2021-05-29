@@ -1,3 +1,4 @@
+// 아이콘 버튼 (검색 버튼, 알림 버튼)
 import React from 'react';
 import styled from "styled-components/native";
 import PropTypes from "prop-types";

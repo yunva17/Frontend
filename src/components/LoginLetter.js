@@ -1,3 +1,4 @@
+//로그인 화면의 자동로그인, 계정찾기 버튼 (버튼아이콘 + 텍스트)
 import React from 'react';
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
