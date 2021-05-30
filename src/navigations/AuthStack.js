@@ -3,6 +3,7 @@ import React, {useContext} from 'react';
 import {ThemeContext} from "styled-components/native";
 import {createStackNavigator} from "@react-navigation/stack";
 import {Mode,Login,Signup, AccountFind} from "../screens";
+import {MaterialCommunityIcons} from "@expo/vector-icons";
  
 const Stack = createStackNavigator();
 
@@ -16,6 +17,11 @@ const AuthStack = () => {
             headerTitleAlign: "center",
             cardStyle:{ backgroundColor: theme.backgroundColor},
             headerStyle: {elevation: 0},
+            headerBackImage: () => {
+                return(
+                    <MaterialCommunityIcons name="keyboard-backspace" size={30}/>
+                );
+            },
         }}>
             
             <Stack.Screen name="Login" component={Login} options={{headerBackTitle: false, headerTitle: " "}} />

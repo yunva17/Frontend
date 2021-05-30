@@ -8,19 +8,20 @@ const Container = styled.View`
   margin-left: 5px;
   margin-right: 5px;
   margin-bottom: 15px;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Label = styled.Text`
   font-size: 16px;
   font-weight: 600;
-  margin-top:8px;
   color: ${({theme}) => theme.label};
 `;
 
 
-const Button = ({ label, value, status, onPress }) => {
+const Button = ({ label, value, status, onPress, containerStyle }) => {
   return (
-    <Container>
+    <Container style={containerStyle}>
       <Label>{label}</Label>
       <RadioButton
         value={value}
@@ -36,6 +37,7 @@ Button.propTypes = {
   onPress: PropTypes.func.isRequired,
   value: PropTypes.bool,
   status: PropTypes.string,
+  containerStyle: PropTypes.object,
 };
 
 export default Button;

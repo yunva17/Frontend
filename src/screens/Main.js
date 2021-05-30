@@ -162,14 +162,15 @@ const Stroe = ({item: {id, storeName, score, reviews, foodType, src}, onPress}) 
 };
 
 
-const Main = () => {
+const Main = ({navigation}) => {
     const [input, setInput] = useState("");
     const [isFocused, setIsFocused] = useState(false);
     const [isUser, setIsUser] = useState(true);
 
     const _handleNoticePress = () => {};
 
-    const _handleSearchPress = () => {};
+    //임시로 
+    const _handleSearchPress = () => {navigation.navigate("RegisterAuction")}; 
 
     const _handleItemPress = () => {};
 
