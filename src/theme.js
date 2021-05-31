@@ -28,6 +28,9 @@ export const theme = {
     spinnerBakcground: color.black,
     spinnerIndicator: color.white,
 
-    tabActiveColor: color.blue,
+    tabActiveColor: "#227ECF",
     tabIncativeColor: color.grey,
+
+    MypageIconColor: color.blue,
+    profileBackground: color.grey,
 };
