@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Main, RegisterAuction, Auction, Store, Mypage} from '../screens';
 import { MaterialIcons } from '@expo/vector-icons';
 import { theme } from '../theme';
+import MypageStack from './MypageStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -77,7 +78,7 @@ const MainTab = () => {
             />
             <Tab.Screen 
                 name = "마이페이지" 
-                component={Mypage} 
+                component={MypageStack} 
                 options={{
                     tabBarIcon: ({ focused }) =>
                         TabBarIcon({
