@@ -1,18 +1,75 @@
 import React from 'react';
 import styled from "styled-components/native";
-import {Text} from "react-native";
+import MypageButton from '../components/MypageButton';
+import ProfileImage from '../components/ProfileImage';
+import SmallButton from '../components/SmallButton';
 
-const Container = styled.View`
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-    background-color: ${({theme})=> theme.background};
+const Header = styled.View`
+    height: 8%;
 `;
 
-const Mypage = () => {
+const Title = styled.Text`
+    font-size: 32px;
+    margin: 20px;
+`;
+
+const Container = styled.View`
+    background-color: ${({theme})=> theme.background};
+    flex: 1;
+`;
+
+const IconContainer = styled.View`
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 20px;
+`;
+
+const InfoContainer = styled.View`
+    flex-direction: row;
+    align-items: flex-end;
+    margin: 30px;
+    margin-left: 40px;
+`;
+
+const ProfileButton = styled.TouchableOpacity`
+    flex-direction: row;
+    width: 75%;
+`
+const Username = styled.Text`
+    font-size: 25px;
+    margin: 20px;
+`;
+
+const Mypage = ( {navigation} ) => {
     return (
         <Container>
-            <Text style={{fontSize: 30}}>Mypage Screen</Text>
+            {/*
+            <Header>
+                <Title>마이페이지</Title>
+            </Header>
+            */}
+            
+            <InfoContainer>
+                <ProfileButton onPress={() => {
+                    navigation.navigate("StoreInfo");
+                }}>
+                    <ProfileImage />
+                    <Username>업체 이름</Username>
+                </ProfileButton>
+                <SmallButton title="로그아웃" onPress={ () => {}} />
+            </InfoContainer>
+            
+            <IconContainer>
+                <MypageButton title='입찰내역' name='description' />
+                <MypageButton title='업체관리' name='home-work' />
+                <MypageButton title='리뷰관리' name='thumb-up' />
+            </IconContainer>
+            <IconContainer>
+                <MypageButton title='로그분석' name='insert-chart' /> 
+                <MypageButton title='채팅관리' name='chat' />
+                <MypageButton title='즐겨찾기' name='star' />
+            </IconContainer>
         </Container>
     );
 };
