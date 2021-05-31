@@ -10,7 +10,7 @@ const TabBarIcon = ({ focused, name }) => {
     return(
         <MaterialIcons
             name={name}
-            size={27}
+            size={29}
             color={focused ? theme.tabActiveColor : theme.tabIncativeColor}
         />
     );
@@ -22,6 +22,13 @@ const MainTab = () => {
             tabBarOptions={{
                 activeTintColor: theme.tabActiveColor,
                 inactiveTintColor: theme.tabIncativeColor,
+                labelStyle: {
+                    fontSize: 15,
+                  },
+                style : {
+                    height: 55,
+                },
+                  
             }}    
         >
             <Tab.Screen 
