@@ -4,12 +4,46 @@ const color={
     white: "#ffffff",
     black: "#000000",
     red: "#ff0000",
+    grey: "#a6a6a6",
+    lightGrey: "#f2f2f2",
+    opacityDark: "rgba(32,46,83,0.5)",
+    yellow: "#ffff00",
 };
 
-const theme = {
+export const theme = {
     background: color.white,
+    text: color.black,
+    errorText: color.red,
+    icon: color.white,
 
     titleColor: color.blue,
+    smallTitle: color.grey,
     userButton: color.blue,
-    storeBitton: color.skyBlue,
+    storeButton: color.skyBlue,
+    buttonTextColor: color.white,
+    buttonBackground: color.blue,
+    buttonUnfilledTitle: color.white,
+    buttonUnfilledBackground: color.skyBlue,
+    buttonCompleted: color.grey,
+
+    
+    label: color.grey,
+    inputPlaceholder: color.grey,
+    imputBorder: color.grey,
+
+    spinnerBakcground: color.black,
+    spinnerIndicator: color.white,
+
+    imageBackground: color.grey,
+
+    tabActiveColor: "#227ECF",
+    tabIncativeColor: color.grey,
+
+    MypageIconColor: color.blue,
+    profileBackground: color.grey,
+
+    textBackground: color.lightGrey,
+    opacityBackground: color.opacityDark,
+
+    starColor: color.yellow,
 };
