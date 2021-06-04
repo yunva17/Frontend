@@ -1,8 +1,9 @@
 import React, {useContext} from 'react';
 import {ThemeContext} from "styled-components/native";
 import {createStackNavigator} from "@react-navigation/stack";
-import {Main, RegisterAuction} from "../screens";
+import {Main, StoreDetail, Message} from "../screens";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
+
 
 const Stack = createStackNavigator();
 
@@ -22,14 +23,10 @@ const MainStack = () => {
                 );
             },
         }}>
-            <Stack.Screen name="Main" component={Main} options={{headerShown: false}}/>
-            <Stack.Screen name="RegisterAuction" component={RegisterAuction} 
-            options={{
-                headerTitle: "경매 공고 등록",
-                headerTitleStyle: {fontSize: 25, fontWeight: 'bold'},
-                headerBackTitle: false,
-                headerTitleAlign: "left",
-                }}/>
+            <Stack.Screen name = "Main" component={Main} options={{headerShown: false}}/>
+            <Stack.Screen name="StoreDetail" component={StoreDetail}
+             options={{headerTitle: " ", headerStyle: {elevation: 0}}}/>
+             <Stack.Screen name = "Message" component={Message} options={{headerTitle: ""}}/>
         </Stack.Navigator>
     );
 };

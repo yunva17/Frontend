@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styled from "styled-components/native";
 import {IconButton} from "../components";
 import { images } from '../images';
-import {FlatList, View, Text, ScrollView} from "react-native";
+import {FlatList, ScrollView} from "react-native";
 import {popular, recomendedStore} from "../utils/data";
 
 
@@ -146,7 +146,7 @@ const Item = ({item: {id, userType, count, foodType, price, src}, onPress, lates
     );
 };
 
-const Stroe = ({item: {id, storeName, score, reviews, foodType, src}, onPress}) => {
+const Store = ({item: {id, storeName, score, reviews, foodType, src}, onPress}) => {
     return (
         <ItemContainer onPress={onPress} >
             <ImageContainer>
@@ -170,11 +170,13 @@ const Main = ({navigation}) => {
     const _handleNoticePress = () => {};
 
     //임시로 
-    const _handleSearchPress = () => {navigation.navigate("RegisterAuction")}; 
+    const _handleSearchPress = () => {}; 
 
     const _handleItemPress = () => {};
 
-    const _handleStorePress = () => {};
+    const _handleStorePress = item => {
+        navigation.navigate('StoreDetail', {id: item.id, name: item.storeName})
+    };
 
     return (
         <>
@@ -221,7 +223,7 @@ const Main = ({navigation}) => {
             keyExtractor={item => item['id'].toString()}
             data={recomendedStore}
             renderItem={({item}) => (
-                <Stroe item={item} onPress={_handleStorePress} />
+                <Store item={item} onPress={()=> _handleStorePress(item)} />
             )} />
             </>
          ) 
@@ -246,7 +248,7 @@ const Main = ({navigation}) => {
             keyExtractor={item => item['id'].toString()}
             data={popular}
             renderItem={({item}) => (
-                <Item item={item} onPress={_handleItemPress} latest={true}/>
+                <Item item={item} onPress={_handleItemPress()} latest={true}/>
             )} />
         </LatestView>
            

@@ -4,6 +4,7 @@ import AuthStack from "./AuthStack";
 import { Spinner } from '../components';
 import { ProgressContext } from '../contexts/Progress';
 import MainStack from "./MainStack";
+import MainTab from './MainTab';
 
 const Navigation = () => {
     const {inProgress} = useContext(ProgressContext);
@@ -11,7 +12,7 @@ const Navigation = () => {
     return (
         <NavigationContainer>
             {/* <AuthStack /> */}
-            <MainStack />
+            <MainTab />
             {inProgress&&<Spinner />}
         </NavigationContainer>
     );

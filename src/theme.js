@@ -5,6 +5,9 @@ const color={
     black: "#000000",
     red: "#ff0000",
     grey: "#a6a6a6",
+    lightGrey: "#f2f2f2",
+    opacityDark: "rgba(32,46,83,0.5)",
+    yellow: "#ffff00",
 };
 
 export const theme = {
@@ -28,10 +31,19 @@ export const theme = {
     inputPlaceholder: color.grey,
     imputBorder: color.grey,
 
-   
-
     spinnerBakcground: color.black,
     spinnerIndicator: color.white,
 
     imageBackground: color.grey,
+
+    tabActiveColor: "#227ECF",
+    tabIncativeColor: color.grey,
+
+    MypageIconColor: color.blue,
+    profileBackground: color.grey,
+
+    textBackground: color.lightGrey,
+    opacityBackground: color.opacityDark,
+
+    starColor: color.yellow,
 };

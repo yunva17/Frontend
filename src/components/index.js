@@ -8,7 +8,8 @@ import IconButton from "./IconButton";
 import RadioButton from "./RadioButton";
 import SmallButton from "./SmallButton";
 import DateTimePicker from "./DateTimePicker";
+import MypageButton from "./MypageButton";
+import ProfileImage from "./ProfileImage";
 
 
-
-export {DateTimePicker, Spinner, ModeButton, Image, SmallButton, RadioButton,IconButton ,Input,Button, LogInLetter};
+export {ProfileImage, MypageButton, DateTimePicker, Spinner, ModeButton, Image, SmallButton, RadioButton,IconButton ,Input,Button, LogInLetter};
