@@ -19,7 +19,7 @@ const Label = styled.Text`
 const Content = styled.Text`
   font-size: 14px;
   padding: 4px 4px 0 4px;
-  margin-top: 5px;
+  margin-top: 4px;
   width: 45%;
 `;
 
@@ -36,7 +36,7 @@ const StyledTextInput = styled.TextInput.attrs(({ theme }) => ({
 `;
 
 const ButtonContainer = styled.TouchableOpacity`
-  background-color: ${({theme, completed})=> completed? theme.buttonCompleted : theme.buttonBackground};
+  background-color: ${({theme, disabled})=> disabled? theme.buttonDisabled : theme.buttonBackground};
   border-radius: 4px;
   width: 20%;
   height: auto;

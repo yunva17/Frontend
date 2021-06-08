@@ -5,12 +5,9 @@ import { MaterialIcons } from'@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import { Platform, Alert} from 'react-native';
 
-
-
 const Container = styled.View`
     align-self: center;
     margin-bottom: 20px;
-
 `;
 
 const StyledImage = styled.Image`

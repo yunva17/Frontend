@@ -4,6 +4,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Mypage from "../screens/Mypage";
 import StoreInfo from "../screens/StoreInfo";
 import StoreInfoChange from "../screens/StoreInfoChange";
+import UserInfo from "../screens/UserInfo";
+import UserInfoChange from "../screens/UserInfoChange";
 
 const Stack = createStackNavigator();
 
@@ -22,6 +24,8 @@ const MypageStack = () => {
             />
             <Stack.Screen name="StoreInfo" component={StoreInfo} options={{headerBackTitle: false, headerTitle: " "}}/>
             <Stack.Screen name="StoreInfoChange" component={StoreInfoChange} options={{headerBackTitle: false, headerTitle: " "}}/>
+            <Stack.Screen name="UserInfo" component={UserInfo} options={{headerBackTitle: false, headerTitle: " "}}/>
+            <Stack.Screen name="UserInfoChange" component={UserInfoChange} options={{headerBackTitle: false, headerTitle: " "}}/>
         </Stack.Navigator>
     );
 }

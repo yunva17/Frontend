@@ -33,6 +33,8 @@ export const theme = {
 
     MypageIconColor: color.blue,
     profileBackground: "#424242",
+
     imageButtonIcon: color.white,
     imageButtonBackground: color.grey,
+    buttonDisabled: color.grey,
 };

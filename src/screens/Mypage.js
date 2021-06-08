@@ -2,15 +2,6 @@ import React from 'react';
 import styled from "styled-components/native";
 import {MypageButton, ProfileImage, SmallButton} from '../components';
 
-const Header = styled.View`
-    height: 8%;
-`;
-
-const Title = styled.Text`
-    font-size: 32px;
-    margin: 20px;
-`;
-
 const Container = styled.View`
     background-color: ${({theme})=> theme.background};
     flex: 1;
@@ -42,15 +33,9 @@ const Username = styled.Text`
 const Mypage = ( {navigation} ) => {
     return (
         <Container>
-            {/*
-            <Header>
-                <Title>마이페이지</Title>
-            </Header>
-            */}
-            
             <InfoContainer>
                 <ProfileButton onPress={() => {
-                    navigation.navigate("StoreInfo");
+                    navigation.navigate("UserInfo");
                 }}>
                     <ProfileImage />
                     <Username>업체 이름</Username>
