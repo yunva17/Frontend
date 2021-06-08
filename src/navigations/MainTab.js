@@ -20,6 +20,7 @@ const TabBarIcon = ({ focused, name }) => {
 const MainTab = () => {
     return(
         <Tab.Navigator
+            initialRouteName="홈"
             tabBarOptions={{
                 activeTintColor: theme.tabActiveColor,
                 inactiveTintColor: theme.tabIncativeColor,

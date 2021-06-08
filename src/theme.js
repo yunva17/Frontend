@@ -32,5 +32,7 @@ export const theme = {
     tabIncativeColor: color.grey,
 
     MypageIconColor: color.blue,
-    profileBackground: color.grey,
+    profileBackground: "#424242",
+    imageButtonIcon: color.white,
+    imageButtonBackground: color.grey,
 };

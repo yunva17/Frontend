@@ -17,7 +17,7 @@ const Title = styled.Text`
     margin-top: 2px;
 `;
 
-const MypageButton = ({ title, name, source, onPress }) => {
+const MypageButton = ({ title, name, onPress }) => {
     return (
         <TouchableOpacity onPress={onPress}>
             <MaterialIcons name={name} size={60} color={theme.MypageIconColor} />

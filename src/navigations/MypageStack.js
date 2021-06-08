@@ -3,7 +3,7 @@ import {ThemeContext} from "styled-components/native";
 import { createStackNavigator } from '@react-navigation/stack';
 import Mypage from "../screens/Mypage";
 import StoreInfo from "../screens/StoreInfo";
-import MainTab from './MainTab';
+import StoreInfoChange from "../screens/StoreInfoChange";
 
 const Stack = createStackNavigator();
 
@@ -21,6 +21,7 @@ const MypageStack = () => {
                 options={{headerBackTitle: false, headerTitle: "마이페이지", headerTitleAlign: 'left'}}
             />
             <Stack.Screen name="StoreInfo" component={StoreInfo} options={{headerBackTitle: false, headerTitle: " "}}/>
+            <Stack.Screen name="StoreInfoChange" component={StoreInfoChange} options={{headerBackTitle: false, headerTitle: " "}}/>
         </Stack.Navigator>
     );
 }

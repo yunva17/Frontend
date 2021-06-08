@@ -230,8 +230,7 @@ const Signup = ({ navigation, route }) => {
             />
         </Container>
         </KeyboardAwareScrollView>
-
-        
+    
     );
 };
 

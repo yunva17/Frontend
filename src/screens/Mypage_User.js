@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from "styled-components/native";
-import {MypageButton, ProfileImage, SmallButton} from '../components';
+import MypageButton from '../components/MypageButton';
+import ProfileImage from '../components/ProfileImage';
+import SmallButton from '../components/SmallButton';
 
 const Header = styled.View`
     height: 8%;
@@ -50,21 +52,21 @@ const Mypage = ( {navigation} ) => {
             
             <InfoContainer>
                 <ProfileButton onPress={() => {
-                    navigation.navigate("StoreInfo");
+                    navigation.navigate("UserInfo");
                 }}>
                     <ProfileImage />
-                    <Username>업체 이름</Username>
+                    <Username>사용자 이름</Username>
                 </ProfileButton>
                 <SmallButton title="로그아웃" onPress={ () => {}} />
             </InfoContainer>
             
             <IconContainer>
-                <MypageButton title='입찰내역' name='description' />
-                <MypageButton title='업체관리' name='home-work' />
+                <MypageButton title='이용내역' name='list-alt' />
                 <MypageButton title='리뷰관리' name='thumb-up' />
+                <MypageButton title='공고관리' name='description' />
             </IconContainer>
             <IconContainer>
-                <MypageButton title='로그분석' name='insert-chart' /> 
+                <MypageButton title='결제관리' name='payment' /> 
                 <MypageButton title='채팅관리' name='chat' />
                 <MypageButton title='즐겨찾기' name='star' />
             </IconContainer>
