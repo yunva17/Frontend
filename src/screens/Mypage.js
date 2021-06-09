@@ -35,7 +35,7 @@ const Mypage = ( {navigation} ) => {
         <Container>
             <InfoContainer>
                 <ProfileButton onPress={() => {
-                    navigation.navigate("UserInfo");
+                    navigation.navigate("StoreInfo");
                 }}>
                     <ProfileImage />
                     <Username>업체 이름</Username>

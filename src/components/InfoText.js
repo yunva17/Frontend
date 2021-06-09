@@ -12,7 +12,7 @@ const Label = styled.Text`
   font-size: 18px;
   font-weight: 600;
   margin-right: 7px;
-  width: 20%;
+  width: 19%;
   margin-top: 6px;
 `;
 
@@ -20,7 +20,7 @@ const Content = styled.Text`
   font-size: 14px;
   padding: 4px 4px 0 4px;
   margin-top: 4px;
-  width: 45%;
+  width: 51%;
 `;
 
 const StyledTextInput = styled.TextInput.attrs(({ theme }) => ({
@@ -32,13 +32,13 @@ const StyledTextInput = styled.TextInput.attrs(({ theme }) => ({
   font-size: 16px;
   border: 1px solid;
   border-radius: 4px;
-  width: 45%; 
+  width: 51%; 
 `;
 
 const ButtonContainer = styled.TouchableOpacity`
   background-color: ${({theme, disabled})=> disabled? theme.buttonDisabled : theme.buttonBackground};
   border-radius: 4px;
-  width: 20%;
+  width: 17%;
   height: auto;
   margin-left: 20px;
   align-items: center;
@@ -63,7 +63,7 @@ const InfoButton = ({title, onPress, disabled}) => {
 
 const InfoText = ({value, onChangeText, placeholder,
   isPassword, returnKeyType, keyboardType, label, content, isChanged, 
-  showButton, title, onPress, disabled}) => {
+  showButton, title, onPress, disabled, editable}) => {
   return(
     <Container>
         <Label>{label}</Label>
@@ -76,6 +76,7 @@ const InfoText = ({value, onChangeText, placeholder,
           secureTextEntry={isPassword}
           returnKeyType={returnKeyType}
           keyboardType={keyboardType}
+          editable={editable}
         />}
         {showButton &&
         <InfoButton
@@ -84,6 +85,7 @@ const InfoText = ({value, onChangeText, placeholder,
           disabled={disabled}
           containerStyle={{}}
         />}
+       
     </Container>
   );
 };

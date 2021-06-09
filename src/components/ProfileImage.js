@@ -62,7 +62,7 @@ const ProfileImage = ({ url, imageStyle, showButton, onChangeImage }) => {
             let result = await ImagePicker.launchImageLibraryAsync({
                 mediaTypes: ImagePicker.MediaTypeOptions.Images,
                 allowsEditing: true,
-                aspect: [3,4],
+                aspect: [1,1],
                 quality: 1,
               });
 
