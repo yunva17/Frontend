@@ -8,15 +8,13 @@ import { Platform, Alert} from 'react-native';
 const Container = styled.View`
     align-self: center;
     margin-bottom: 20px;
-`;
-
+`
 const StyledImage = styled.Image`
     width: 100px;
     height: 100px;
     border-radius: 50px;
     background-color: ${({theme}) => theme.profileBackground};
 `;
-
 const ButtonContainer = styled.TouchableOpacity`
     background-color: ${({theme}) => theme.imageButtonBackground};
     position: absolute;
@@ -79,12 +77,13 @@ const ProfileImage = ({ url, imageStyle, showButton, onChangeImage }) => {
             <StyledImage source={{ uri: url }} style={imageStyle} />
             {showButton && <PhotoButton onPress={_handleEditButton}/>}
         </Container>
-    );
+        );
 };
+
 
 ProfileImage.defaultProps = {
     onChangeImage: () => {},
-  }
+}
 
 ProfileImage.prototype = {
     uri: PropTypes.string,
@@ -92,5 +91,4 @@ ProfileImage.prototype = {
     showButton: PropTypes.bool,
     onChangeImage: PropTypes.func,
 }
-
 export default ProfileImage;

@@ -32,9 +32,13 @@ export const theme = {
     tabIncativeColor: color.grey,
 
     MypageIconColor: color.blue,
+<<<<<<< HEAD
     profileBackground: "#424242",
 
     imageButtonIcon: color.white,
     imageButtonBackground: color.grey,
     buttonDisabled: color.grey,
+=======
+    profileBackground: color.grey,
+>>>>>>> 69e51b863bce901321240cf5a2d417f3eab4a4ae
 };
