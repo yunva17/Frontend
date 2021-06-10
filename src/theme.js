@@ -46,4 +46,7 @@ export const theme = {
     opacityBackground: color.opacityDark,
 
     starColor: color.yellow,
+    imageButtonIcon: color.white,
+    imageButtonBackground: color.grey,
+    buttonDisabled: color.grey,
 };
