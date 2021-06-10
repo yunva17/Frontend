@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Main, Auction, Store, Mypage} from '../screens';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -19,7 +19,9 @@ const TabBarIcon = ({ focused, name }) => {
     );
 };
 
-const MainTab = () => {
+const MainTab = ({navigation}) => {
+    
+
     return(
         <Tab.Navigator
             initialRouteName="홈"
@@ -62,8 +64,11 @@ const MainTab = () => {
                             focused,
                             name: 'control-point',
                         }),
-                    
+                        unmountOnBlur: true,
                 }}
+                listeners={({ navigation }) => ({
+                    blur: () => navigation.setParams({ screen: undefined }),
+                })}
             />
             <Tab.Screen 
                 name = "경매" 
@@ -74,7 +79,11 @@ const MainTab = () => {
                             focused,
                             name: 'thumbs-up-down',
                         }),
+                        unmountOnBlur: true,
                 }}
+                listeners={({ navigation }) => ({
+                    blur: () => navigation.setParams({ screen: undefined }),
+                })}
             />
             <Tab.Screen 
                 name = "업체" 
@@ -85,7 +94,11 @@ const MainTab = () => {
                             focused,
                             name: 'local-restaurant',
                         }),
+                        unmountOnBlur: true,
                 }}
+                listeners={({ navigation }) => ({
+                    blur: () => navigation.setParams({ screen: undefined }),
+                })}
             />
             <Tab.Screen 
                 name = "마이페이지" 
@@ -96,7 +109,11 @@ const MainTab = () => {
                             focused,
                             name: 'person',
                         }),
+                        unmountOnBlur: true,
                 }}
+                listeners={({ navigation }) => ({
+                    blur: () => navigation.setParams({ screen: undefined }),
+                })}
             />
 
         </Tab.Navigator>
