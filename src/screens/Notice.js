@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import {FlatList, ScrollView} from "react-native";
+import React, {useState} from 'react';
 import {notices} from "../utils/data";
 import styled from "styled-components/native";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
@@ -15,7 +14,7 @@ const AlertContainer = styled.View`
     border-color: ${({theme}) => theme.label};
 `;
 
-const List = styled.View`
+const List = styled.ScrollView`
     flex: 1;
 `;
 

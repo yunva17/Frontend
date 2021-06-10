@@ -81,21 +81,21 @@ export const recomendedStore = [
         storeName: "식당이름",
         score: 4,
         reviews: 80,
-        foodType: "한식",
+        foodType: "일식",
         src:""
     },
     {
         id: 2,
         storeName: "식당이름",
-        score: 4,
+        score: 4.5,
         reviews: 80,
-        foodType: "한식",
+        foodType: "양식",
         src:""
     },
     {
         id: 3,
         storeName: "식당이름",
-        score: 4,
+        score: 5,
         reviews: 80,
         foodType: "한식",
         src:""
@@ -275,5 +275,62 @@ export const notices =[
         name: "가게8",
         desc: "blablablablabla 하였습니다.\nblablablablabla 하였습니다.",
         time: 5,
+    },
+];
+
+export const Reviews = [
+    {
+        id: 0,
+        date: "2020-04-27 오후 4시",
+        name: "닉네임0",
+        useSrc: "",
+        score: 4.5,
+        ment: "맛있어요 blablablabla!",
+        src: "",
+    },
+    {
+        id: 1,
+        date: "2020-04-26 오전 9시",
+        name: "닉네임1",
+        useSrc: "",
+        score: 3.5,
+        ment: "맛없어요 blablablabla!",
+        src: "",
+    },
+    {
+        id: 2,
+        date: "2020-04-25 오후 8시",
+        name: "닉네임2",
+        useSrc: "",
+        score: 5.0,
+        ment: "맛있어요 blablablabla!",
+        src: "",
+    },
+    {
+        id: 3,
+        date: "2020-04-25 오후 4시",
+        name: "닉네임3",
+        useSrc: "",
+        score: 2.5,
+        ment: "으악 blablablabla!",
+        src: "",
+    },
+    {
+        id: 4,
+        date: "2020-04-25 오전 10시",
+        name: "닉네임4",
+        useSrc: "",
+        score: 4.2,
+        ment: "맛있어요 blablablabla!",
+        src: "",
+    },
+    {
+        id: 5,
+        date: "2020-04-24 오후 4시",
+        name: "닉네임5",
+        useSrc: "",
+        score: 4.5,
+        ment: "맛있어요 blablablabla!",
+        src: "",
     },
 ];
