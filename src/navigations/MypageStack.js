@@ -11,7 +11,7 @@ const MypageStack = () => {
 
     return (
         <Stack.Navigator
-        initialRouteName="Mypage_User"
+        initialRouteName="Mypage_Store"
         screenOptions={{
             headerTitleAlign: "center",
             cardStyle:{ backgroundColor: theme.backgroundColor},
@@ -22,10 +22,10 @@ const MypageStack = () => {
             <Stack.Screen name="Mypage_User" component={Mypage_User} 
                 options={{headerBackTitle: false, headerTitle: "My Page", headerTitleAlign: 'left',  headerTitleStyle: {fontSize: 25, fontWeight: 'normal'},}}
             />
-            <Stack.Screen name="StoreInfo" component={StoreInfo} options={{headerBackTitle: false, headerTitle: " "}}/>
-            <Stack.Screen name="StoreInfoChange" component={StoreInfoChange} options={{headerBackTitle: false, headerTitle: " "}}/>
-            <Stack.Screen name="UserInfo" component={UserInfo} options={{headerBackTitle: false, headerTitle: " "}}/>
-            <Stack.Screen name="UserInfoChange" component={UserInfoChange} options={{headerBackTitle: false, headerTitle: " "}}/>
+            <Stack.Screen name="StoreInfo" component={StoreInfo} options={{headerBackTitle: false, headerTitle: "회원 정보", headerTitleAlign: 'center',  headerTitleStyle: {fontSize: 20, fontWeight: 'normal'},}}/>
+            <Stack.Screen name="StoreInfoChange" component={StoreInfoChange} options={{headerBackTitle: false, headerTitle: "회원 정보 수정", headerTitleAlign: 'center',  headerTitleStyle: {fontSize: 20, fontWeight: 'normal'},}}/>
+            <Stack.Screen name="UserInfo" component={UserInfo} options={{headerBackTitle: false, headerTitle: "회원 정보", headerTitleAlign: 'center',  headerTitleStyle: {fontSize: 20, fontWeight: 'normal'},}}/>
+            <Stack.Screen name="UserInfoChange" component={UserInfoChange} options={{headerBackTitle: false, headerTitle: "회원 정보 수정", headerTitleAlign: 'center',  headerTitleStyle: {fontSize: 20, fontWeight: 'normal'},}}/>
         </Stack.Navigator>
     );
 }
