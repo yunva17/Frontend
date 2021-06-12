@@ -10,7 +10,7 @@ const Container = styled.View`
 
 const Label = styled.Text`
   font-size: 18px;
-  font-weight: 600;
+  font-weight: bold;
   margin-right: 7px;
   width: 19%;
   margin-top: 6px;
@@ -29,7 +29,7 @@ const StyledTextInput = styled.TextInput.attrs(({ theme }) => ({
   background-color: ${({ theme}) => theme.background};
   color: ${({ theme }) => theme.text};
   padding: 5px 10px;
-  font-size: 16px;
+  font-size: ${({value}) => value === ""? 12 : 16}px;
   border: 1px solid;
   border-radius: 4px;
   width: 51%; 

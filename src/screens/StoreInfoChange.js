@@ -21,6 +21,11 @@ const CenterContainer = styled.View`
     justify-content: center;
     align-items: center;
     margin-right: 5px;
+    margin-bottom: 5%;
+`;
+
+const FileContainer = styled.View`
+    margin-left: 20%;
 `;
 
 const StoreInfoChange = () => {
@@ -163,6 +168,7 @@ const StoreInfoChange = () => {
                         content={ document === null ? "서류 등록 필요"  : "등록됨"}
                         title={ document === null ? "등록"  : "변경"}
                     />
+                    <FileContainer>
                     <View 
                         style={{marginTop:-35,}}>
                         <Image 
@@ -170,6 +176,7 @@ const StoreInfoChange = () => {
                             onChangeImage={url => setDocument(url)}
                         /> 
                     </View>
+                    </FileContainer>
                 
                 </InfoContainer>
                 
