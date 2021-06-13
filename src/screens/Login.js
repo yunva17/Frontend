@@ -1,7 +1,7 @@
 // 로그인 페이지
 import React, {useState, useRef,useEffect} from 'react';
 import styled from "styled-components/native";
-import {Input,Button, LogInLetter} from "../components";
+import {Input,Button, CheckBoxLetter} from "../components";
 import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
 import {validateEmail,removeWhitespace} from "../utils/common";
 import {images} from "../images";
@@ -85,13 +85,13 @@ const Login = ({navigation}) => {
 
 
             <Letter>
-            <LogInLetter
+            <CheckBoxLetter
             hasIcon={true}
             type={autoLogin? images.checked : images.unchecked}
             title="자동 로그인"
             onPress={() => setAutoLogin(!autoLogin)} />
 
-            <LogInLetter
+            <CheckBoxLetter
             hasIcon={false}
             title="아이디/비밀번호 찾기"
             onPress={()=> {navigation.navigate("AccountFind")}}
