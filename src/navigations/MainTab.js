@@ -4,6 +4,7 @@ import { Main, RegisterAuction, Auction, Store, Mypage} from '../screens';
 import { MaterialIcons } from '@expo/vector-icons';
 import { theme } from '../theme';
 import MypageStack from './MypageStack';
+import AuctionStack from './AuctionStack'
 
 const Tab = createBottomTabNavigator();
 
@@ -57,7 +58,7 @@ const MainTab = () => {
             />
             <Tab.Screen 
                 name = "경매" 
-                component={Auction} 
+                component={AuctionStack} 
                 options={{
                     tabBarIcon: ({ focused }) =>
                         TabBarIcon({

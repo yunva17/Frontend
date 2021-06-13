@@ -2048,6 +2048,13 @@
   dependencies:
     "array-filter" "^1.0.0"
 
+"axios@^0.21.1":
+  "integrity" "sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA=="
+  "resolved" "https://registry.npmjs.org/axios/-/axios-0.21.1.tgz"
+  "version" "0.21.1"
+  dependencies:
+    "follow-redirects" "^1.10.0"
+
 "babel-plugin-dynamic-import-node@^2.3.3":
   "integrity" "sha512-jZVI+s9Zg3IqA/kdi0i6UDCybUI3aSBLnglhYbSSjKlV7yF1F/5LWv8MakQmvYpnbJDS6fcBL2KzHSxNCMtWSQ=="
   "resolved" "https://registry.npmjs.org/babel-plugin-dynamic-import-node/-/babel-plugin-dynamic-import-node-2.3.3.tgz"
@@ -3047,14 +3054,11 @@
   "resolved" "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz"
   "version" "4.0.0"
 
-<<<<<<< HEAD
 "escape-string-regexp@2.0.0":
   "integrity" "sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w=="
   "resolved" "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz"
   "version" "2.0.0"
 
-=======
->>>>>>> 69e51b863bce901321240cf5a2d417f3eab4a4ae
 "esprima@^4.0.0":
   "integrity" "sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A=="
   "resolved" "https://registry.npmjs.org/esprima/-/esprima-4.0.1.tgz"
@@ -3484,6 +3488,11 @@
     "locate-path" "^6.0.0"
     "path-exists" "^4.0.0"
 
+"follow-redirects@^1.10.0":
+  "integrity" "sha512-HWqDgT7ZEkqRzBvc2s64vSZ/hfOceEol3ac/7tKwzuvEyWx3/4UegXh5oBOIotkGsObyk3xznnSRVADBgWSQVg=="
+  "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.14.1.tgz"
+  "version" "1.14.1"
+
 "fontfaceobserver@^2.1.0":
   "integrity" "sha512-ReOsO2F66jUa0jmv2nlM/s1MiutJx/srhAe2+TE8dJCMi02ZZOcCTxTCQFr3Yet+uODUtnr4Mewg+tNQ+4V1Ng=="
   "resolved" "https://registry.npmjs.org/fontfaceobserver/-/fontfaceobserver-2.1.0.tgz"
@@ -3819,11 +3828,7 @@
   "resolved" "https://registry.npmjs.org/install/-/install-0.13.0.tgz"
   "version" "0.13.0"
 
-<<<<<<< HEAD
 "invariant@^2.2.2", "invariant@^2.2.4", "invariant@2.2.4":
-=======
-"invariant@^2.2.2", "invariant@^2.2.4":
->>>>>>> 69e51b863bce901321240cf5a2d417f3eab4a4ae
   "integrity" "sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA=="
   "resolved" "https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz"
   "version" "2.2.4"
@@ -5426,11 +5431,7 @@
   dependencies:
     "asap" "~2.0.6"
 
-<<<<<<< HEAD
 "prop-types@^15.6.0", "prop-types@^15.6.1", "prop-types@^15.6.2", "prop-types@^15.7.2":
-=======
-"prop-types@^15.6.0", "prop-types@^15.6.2", "prop-types@^15.7.2":
->>>>>>> 69e51b863bce901321240cf5a2d417f3eab4a4ae
   "integrity" "sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ=="
   "resolved" "https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz"
   "version" "15.7.2"
@@ -5495,7 +5496,6 @@
     "iconv-lite" "0.4.24"
     "unpipe" "1.0.0"
 
-<<<<<<< HEAD
 "react-addons-shallow-compare@15.6.2":
   "integrity" "sha1-GYoAuR/DdiPbZKKP0XtZa6NicC8="
   "resolved" "https://registry.npmjs.org/react-addons-shallow-compare/-/react-addons-shallow-compare-15.6.2.tgz"
@@ -5512,8 +5512,6 @@
     "prop-types" "^15.6.2"
     "react" "^16.4.2"
 
-=======
->>>>>>> 69e51b863bce901321240cf5a2d417f3eab4a4ae
 "react-devtools-core@^4.6.0":
   "integrity" "sha512-/lA5FVLMhUHrkQwtEf5wZNCKsXmc2RBZMNS/kkq3WlXPg2Y7COUGMh0Lmz34jjMpM0kvLMDuj+DqsPT/jSADbw=="
   "resolved" "https://registry.npmjs.org/react-devtools-core/-/react-devtools-core-4.13.2.tgz"
@@ -5615,7 +5613,6 @@
   "resolved" "https://registry.npmjs.org/react-native-screens/-/react-native-screens-3.0.0.tgz"
   "version" "3.0.0"
 
-<<<<<<< HEAD
 "react-native-snap-carousel@^3.9.1":
   "integrity" "sha512-xWEGusacIgK1YaDXLi7Gao2+ISLoGPVEBR8fcMf4tOOJQufutlNwkoLu0l6B8Qgsrre0nTxoVZikRgGRDWlLaQ=="
   "resolved" "https://registry.npmjs.org/react-native-snap-carousel/-/react-native-snap-carousel-3.9.1.tgz"
@@ -5624,8 +5621,6 @@
     "prop-types" "^15.6.1"
     "react-addons-shallow-compare" "15.6.2"
 
-=======
->>>>>>> 69e51b863bce901321240cf5a2d417f3eab4a4ae
 "react-native-vector-icons@*":
   "integrity" "sha512-sHIdBB6Y0dHaot2fMXgy5J/hhCn5YuyN7SKDNFgPzL8KA1oF2/v7mgYMavnK7LIIs2dJoGnDANKf61dsU+TZlg=="
   "resolved" "https://registry.npmjs.org/react-native-vector-icons/-/react-native-vector-icons-8.1.0.tgz"
@@ -5655,7 +5650,6 @@
     "prop-types" "^15.6.0"
     "react-timer-mixin" "^0.13.4"
 
-<<<<<<< HEAD
 "react-native-webview@^11.6.2":
   "integrity" "sha512-7e5ltLBgqt1mX0gdTTS2nFPIjfS6y300wqJ4rLWqU71lDO+8ZeayfsF5qo83qxo2Go74CtLnSeWae4pdGwUqYw=="
   "resolved" "https://registry.npmjs.org/react-native-webview/-/react-native-webview-11.6.2.tgz"
@@ -5665,9 +5659,6 @@
     "invariant" "2.2.4"
 
 "react-native@*", "react-native@>=0.60 <=0.64", "react-native@https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz":
-=======
-"react-native@*", "react-native@https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz":
->>>>>>> 69e51b863bce901321240cf5a2d417f3eab4a4ae
   "integrity" "sha512-3jHI2YufrJi7eIABRf/DN/I2yOkmIZ0vAyezTz+PAUJiEs4v//5LLojWEU+W53AZsnuaEMcl/4fVy4bd+OuUbA=="
   "resolved" "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz"
   dependencies:
@@ -5709,11 +5700,7 @@
   "resolved" "https://registry.npmjs.org/react-timer-mixin/-/react-timer-mixin-0.13.4.tgz"
   "version" "0.13.4"
 
-<<<<<<< HEAD
 "react@*", "react@^16.3.0", "react@^16.4.2", "react@>=15.0.0", "react@16.13.1":
-=======
-"react@*", "react@^16.3.0", "react@16.13.1":
->>>>>>> 69e51b863bce901321240cf5a2d417f3eab4a4ae
   "integrity" "sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w=="
   "resolved" "https://registry.npmjs.org/react/-/react-16.13.1.tgz"
   "version" "16.13.1"
@@ -6493,14 +6480,11 @@
   "resolved" "https://registry.npmjs.org/toidentifier/-/toidentifier-1.0.0.tgz"
   "version" "1.0.0"
 
-<<<<<<< HEAD
 "tslib@^2.2.0":
   "integrity" "sha512-gS9GVHRU+RGn5KQM2rllAlR3dU6m7AcpJKdtH8gFvQiC4Otgk98XnmMU+nZenHt/+VhnBPWwgrJsyrdcw6i23w=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.2.0.tgz"
   "version" "2.2.0"
 
-=======
->>>>>>> 69e51b863bce901321240cf5a2d417f3eab4a4ae
 "type-fest@^0.3.1":
   "integrity" "sha512-cUGJnCdr4STbePCgqNFbpVNCepa+kAVohJs1sLhxzdH+gnEoOd8VhbYa7pD3zZYGiURWM2xzEII3fQcRizDkYQ=="
   "resolved" "https://registry.npmjs.org/type-fest/-/type-fest-0.3.1.tgz"
