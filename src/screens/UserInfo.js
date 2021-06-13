@@ -44,16 +44,24 @@ const RowContainer = styled.View`
 
 const RadioTitle = styled.Text`
     font-size: 18px;
-    font-weight: 600;
+    font-weight: bold;
     margin-right: 7px;
-    margin-top: 14px;
     width: 20%;
+    align-self: center;
 `;
 
 const CenterContainer = styled.View`
     justify-content: center;
     align-items: center;
     margin-right: 15px;
+    margin-bottom: 5%;
+`;
+
+const AdditionalContainer = styled.View`
+    flex: 1;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 6px;
 `;
 
 const  UesrInfo = ({navigation}) => {
@@ -97,19 +105,20 @@ const  UesrInfo = ({navigation}) => {
                     <InfoText label="비밀번호" content={password}/>
                     <InfoText label="나이" content={age}/>
                     <RowContainer>
+                        <AdditionalContainer>
                         <RadioTitle>성별</RadioTitle>
                         <RadioButton 
                             label="여자"
                             status={(gender==="female"? "checked" : "unchecked")}
-                            containerStyle={{ marginLeft: 0, marginRight: 0}}
+                            containerStyle={{ marginBottom: 0, marginLeft: 0, marginRight: 0}}
                             onPress={()=>{}}
                         />
                         <RadioButton 
                             label="남자"
                             status={(gender==="male"? "checked" : "unchecked")}
-                            containerStyle={{ marginLeft: 0, marginRight: 0}}
+                            containerStyle={{marginBottom:0, marginLeft: 0, marginRight: 0}}
                             onPress={()=>{}}
-                        />
+                        /></AdditionalContainer>
                     </RowContainer>
                 </InfoContainer>
                 
@@ -147,7 +156,8 @@ const styles = StyleSheet.create({
     info: {
         fontSize: 14, 
         marginLeft: 5, 
-        marginTop: 3,
+        alignSelf: 'center',
+        fontWeight: "bold",
     },
     hr: {
         marginBottom: 10,

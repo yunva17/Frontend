@@ -3,9 +3,9 @@ import styled from "styled-components/native";
 import PropTypes from "prop-types";
 
 const Container = styled.View`
-  flex-direction: column;
-  width: 100%;
-  margin: 10px 0;
+flex-direction: column;
+width: 100%;
+margin: 5px 0;
 `;
 
 const Label = styled.Text`
@@ -27,6 +27,39 @@ const StyledTextInput = styled.TextInput.attrs(({ theme }) => ({
     border-radius: 4px;
   `;
 
+const InputContainer = styled.View` 
+  width: 100%;
+`;
+
+const ButtonContainer = styled.TouchableOpacity`
+  background-color: ${({theme, completed})=> completed? theme.buttonCompleted : theme.buttonBackground};
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+`;
+
+const Title = styled.Text`
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  color: ${({theme})=> theme.buttonTextColor}
+`;
+
+
+const InputButton = ({title, onPress, completed}) => {
+  return(
+    <ButtonContainer onPress={onPress} completed={completed}>
+      <Title>{title}</Title>
+    </ButtonContainer>
+  );
+};
+
 const Input = forwardRef(
   (
     {
@@ -39,7 +72,11 @@ const Input = forwardRef(
       isPassword,
       returnKeyType,
       maxLength,
+      hasButton,
+      buttonTitle,
+      onPress,
       keyboardType,
+      completed,
     },
     ref
   ) => {
@@ -48,6 +85,7 @@ const Input = forwardRef(
     return (
       <Container>
         <Label isFocused={isFocused}>{label}</Label>
+        <InputContainer>
         <StyledTextInput
           ref={ref}
           isFocused={isFocused}
@@ -63,12 +101,19 @@ const Input = forwardRef(
           secureTextEntry={isPassword}
           returnKeyType={returnKeyType}
           maxLength={maxLength}
+          keyboardType={keyboardType}
           autoCapitalize="none"
           autoCorrect={false}
           textContentType="none" // iOS only
           underlineColorAndroid="transparent" // Android only
           keyboardType={keyboardType}
         />
+        {hasButton && 
+        <InputButton 
+        title={buttonTitle} 
+        onPress={onPress} 
+        completed={completed}/>}
+        </InputContainer>
       </Container>
     );
   }
@@ -76,6 +121,10 @@ const Input = forwardRef(
 
 Input.defaultProps = {
   onBlur: () => {},
+  hasButton: false,
+  buttonTitle: "",
+  onPress: ()=> {},
+  completed: false,
 };
 
 Input.propTypes = {
@@ -90,7 +139,11 @@ Input.propTypes = {
   maxLength: PropTypes.number,
   onChangeText: PropTypes.func,
   onSubmitEditing: PropTypes.func,
+  hasButton: PropTypes.bool,
+  buttonTitle: PropTypes.string,
+  onPress: PropTypes.func,
   keyboardType: PropTypes.string,
+  completed: PropTypes.bool,
 };
 
 export default Input;

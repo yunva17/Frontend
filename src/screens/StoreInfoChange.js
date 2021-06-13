@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, {useState, useEffect} from 'react';
 import styled from "styled-components/native";
 import {View, Modal, StyleSheet, TouchableOpacity, Alert} from "react-native";
@@ -6,6 +7,15 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { removeWhitespace, validatePassword } from '../utils/common';
 import Postcode from '@actbase/react-daum-postcode';
 
+=======
+import React,{useState} from 'react';
+import styled from "styled-components/native";
+import {View, Modal, StyleSheet, TouchableOpacity, Alert} from "react-native";
+import {ProfileImage, InfoText, Button, Image} from "../components";
+import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
+import {removeWhitespace, validatePassword} from "../utils/common";
+import Postcode from "@actbase/react-daum-postcode";
+>>>>>>> upstream/feature#9/UserInfo
 
 const Container = styled.View`
     flex: 1;
@@ -22,12 +32,14 @@ const CenterContainer = styled.View`
     justify-content: center;
     align-items: center;
     margin-right: 5px;
+    margin-bottom: 5%;
 `;
 
+const FileContainer = styled.View`
+    margin-left: 20%;
+`;
 
-
-const  StoreInfoChange = () => {
-
+const StoreInfoChange = () => {
     // 임의로 설정, 연동 후 기존 설정값 등록
     const [Photo, setPhoto] = useState(null);
     const [address, setAddress] = useState('');
@@ -42,8 +54,6 @@ const  StoreInfoChange = () => {
     const [isPassword, setIsPassword] = useState(false);
 
     const [isModal, setModal] = useState(false);
-
-
 
     const _handleChangeButtonPress = () => {
         if(!address){
@@ -76,17 +86,17 @@ const  StoreInfoChange = () => {
             Alert.alert('','서류를 등록해주세요');
             return;
         }
-
      };
+
 
     return (
         <Container>
             <KeyboardAwareScrollView
-                extraScrollHeight={20}>
+            extraScrollHeight={20}>
 
                 <View style={{marginTop: 30}} ></View>
 
-               <ProfileImage 
+                <ProfileImage 
                 url={Photo}
                 onChangeImage={url => setPhoto(url)}
                 showButton />
@@ -169,6 +179,7 @@ const  StoreInfoChange = () => {
                         content={ document === null ? "서류 등록 필요"  : "등록됨"}
                         title={ document === null ? "등록"  : "변경"}
                     />
+                    <FileContainer>
                     <View 
                         style={{marginTop:-35,}}>
                         <Image 
@@ -176,6 +187,7 @@ const  StoreInfoChange = () => {
                             onChangeImage={url => setDocument(url)}
                         /> 
                     </View>
+                    </FileContainer>
                 
                 </InfoContainer>
                 
@@ -188,9 +200,9 @@ const  StoreInfoChange = () => {
                     />
                 </CenterContainer>
 
-                </KeyboardAwareScrollView>
-            </Container>
-        
+            </KeyboardAwareScrollView>
+            
+        </Container>
     );
 };
 
@@ -210,4 +222,5 @@ const styles = StyleSheet.create({
       },
 });
 
-export default StoreInfoChange; 
+
+export default StoreInfoChange;

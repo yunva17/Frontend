@@ -46,6 +46,7 @@ const CenterContainer = styled.View`
     justify-content: center;
     align-items: center;
     margin-right: 15px;
+    margin-bottom: 5%;
 `;
 
 const  StoreInfo = ({navigation}) => {
@@ -127,7 +128,8 @@ const styles = StyleSheet.create({
     info: {
         fontSize: 14, 
         marginLeft: 5, 
-        marginTop: 3,
+        alignSelf: 'center',
+        fontWeight: "bold",
     },
     hr: {
         marginBottom: 10,
@@ -142,4 +144,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default StoreInfo; 
+export default StoreInfo;

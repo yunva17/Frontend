@@ -8,7 +8,6 @@ import * as Font from "expo-font";
 import Navigation from './navigations';
 import { ProgressProvider } from './contexts/Progress';
 
-
 // 이미지,폰트 불러오기 
 const cachImages = images => {
     return images.map(image => {

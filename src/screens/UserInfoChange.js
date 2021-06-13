@@ -22,21 +22,25 @@ const CenterContainer = styled.View`
     justify-content: center;
     align-items: center;
     margin-right: 5px;
+    margin-bottom: 5%;
 `;
 const RowContainer = styled.View`
     flex: 1;
     flex-direction: row;
-    align-items: flex-start;
     margin-bottom: 5px;
+    margin-top: 6px;
 `;
 
 const RadioTitle = styled.Text`
     font-size: 18px;
-    font-weight: 600;
+    font-weight: bold;
     margin-right: 7px;
-    margin-top: 14px;
     width: 20%;
+    align-self: center;
 `;
+
+
+
 
 
 
@@ -45,6 +49,7 @@ const  UserInfoChange = () => {
     // 임의로 설정, 연동 후 기존 설정값 등록
     const [Photo, setPhoto] = useState(null);
     const [address, setAddress] = useState('');
+    const [addressDetail, setAddressDetail] = useState('');
     const [phoneNumber,setPhoneNumber] = useState('');
     const [userName, setuserName] = useState('안녕하세요');
     const [password, setPassword] = useState('');
@@ -192,17 +197,18 @@ const  UserInfoChange = () => {
                         keyboardType="number-pad"
                         />
                         <RowContainer>
+                            
                             <RadioTitle>성별</RadioTitle>
                             <RadioButton 
                                 label="여자"
                                 status={(gender==="female"? "checked" : "unchecked")}
-                                containerStyle={{ marginLeft: 0, marginRight: 0}}
+                                containerStyle={{marginBottom:0, marginLeft: 0, marginRight: 0}}
                                 onPress={() => setGender('female')}
                             />
                             <RadioButton 
                                 label="남자"
                                 status={(gender==="male"? "checked" : "unchecked")}
-                                containerStyle={{ marginLeft: 0, marginRight: 0}}
+                                containerStyle={{marginBottom:0, marginLeft: 0, marginRight: 0}}
                                 onPress={() => setGender('male')}
                             />
                     </RowContainer>

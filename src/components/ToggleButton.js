@@ -1,31 +1,34 @@
-import React from "react";
+import React,{useContext} from "react";
 import { Switch } from "react-native";
-import styled from "styled-components/native";
+import styled,{ThemeContext} from "styled-components/native";
 import PropTypes from "prop-types";
 
 const Container = styled.View`
   flex-direction: row;
   width: 100%;
   margin: 7px 0;
+  align-items: center;
 `;
 const Label = styled.Text`
   font-size: 18px;
   font-weight: 600;
-  margin-right: 7px;
   margin-top: 3px;
-  width: 40%;
+  margin-right: 5%;
 `;
  
 const ToggleButton = ({label, value, onValueChange}) => {
+  const theme = useContext(ThemeContext);
+
   return (
     <Container>
       <Label>{label}</Label>
       <Switch
-        trackColor={{  false: "#767577", true: "#81b0ff"  }}
-        thumbColor={{value} ? "#f5dd4b" : "#f4f3f4"}
+        trackColor={{  false: "rgba(73,76,80,0.5)", true: "rgba(0,149,255,0.5)" }}
+        thumbColor={theme.titleColor}
         ios_backgroundColor="#3e3e3e"
         onValueChange={onValueChange}
         value={value}
+        style={{ transform: [{ scaleX: 1.5 }, { scaleY: 1.3 }] }}
       />
     </Container>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components/native";
-import {Text} from "react-native";
+import {Text, Button} from "react-native";
 
 const Container = styled.View`
     flex: 1;
@@ -9,10 +9,13 @@ const Container = styled.View`
     background-color: ${({theme})=> theme.background};
 `;
 
-const Auction = () => {
+const Auction = ({navigation}) => {
     return (
         <Container>
             <Text style={{fontSize: 30}}>Auction Screen</Text>
+            <Button title="경매 상세" onPress={() => {
+                 navigation.navigate("AuctionDetail");
+            }} />
         </Container>
     );
 };

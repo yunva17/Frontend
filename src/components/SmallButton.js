@@ -3,30 +3,32 @@ import styled from "styled-components/native";
 import PropTypes from "prop-types";
 
 const Container = styled.TouchableOpacity`
-    background-color: ${({theme,isFilled})=> isFilled? theme.buttonBackground : theme.buttonUnfilledBackground};
+    background-color: ${({theme,uploaded})=> uploaded? theme.buttonCompleted : theme.buttonBackground};
     align-items: center;
+    justify-content: center;
     border-radius: 4px;
-    width: 20%;
-    height: 35px;
+    width: 40%;
+    height: auto;
     padding: 10px;
     opacity: ${({disabled}) => (disabled? 0.5 : 1)};
-    margin-top: 5px;
+    margin-top: 10px;
 `;
 
 const Title = styled.Text`
-    height: 30px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     color: ${({theme, isFilled}) => isFilled? theme.buttonTextColor : theme.buttonUnfilledTitle };
 `;
 
-const SmallButton = ({containerStyle, title, onPress, isFilled, disabled}) => {
+const SmallButton = ({containerStyle, title, onPress, isFilled, disabled, uploaded}) => {
     return (
         <Container 
         style={containerStyle} 
         onPress={onPress} 
         isFilled={isFilled} 
-        disabled={disabled}>
+        disabled={disabled}
+        uploaded={uploaded}
+        >
             <Title isFilled={isFilled}>{title}</Title>            
         </Container>
     );

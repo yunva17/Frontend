@@ -1,9 +1,9 @@
 // 로그인 페이지
 import React, {useState, useRef,useEffect} from 'react';
 import styled from "styled-components/native";
-import {Input,Button, LoginLetter} from "../components";
+import {Input,Button, CheckBoxLetter} from "../components";
 import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
-import {removeWhitespace} from "../utils/common";
+import {validateEmail,removeWhitespace} from "../utils/common";
 import {images} from "../images";
 
 const Container = styled.View`
@@ -27,16 +27,35 @@ const Letter = styled.View`
     justify-content: space-between;
 `;
 
+const ErrorText = styled.Text`
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 17px;
+    color: ${({theme}) => theme.errorText}
+`;
+
 const Login = ({navigation}) => {
     const [userId, setUserId] = useState("");
     const [password, setPassword] = useState("");
     const [disabled, setDisabled] = useState(true);
     const [autoLogin, setAutoLogin] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
     const passwordRef = useRef();
 
     useEffect(()=> {setDisabled(!(userId&&password))}, [userId,password]);
 
-    const _handleLoginButtonPress = () => {};
+    const _handleEmailChange = email => {
+        const changedEmail = removeWhitespace(email);
+        setUserId(changedEmail);
+        setErrorMessage(
+            validateEmail(changedEmail)? "" : "이메일 형식을 확인하세요."
+        );
+    };
+
+    const _handleLoginButtonPress = () => {
+        //연동되면 코드 추가. 스피너 추가, 로그인 후 계정 인증되면 메인으로 이동되도록.  
+    };
 
     return (
         <KeyboardAwareScrollView
@@ -46,13 +65,14 @@ const Login = ({navigation}) => {
         <Container>
             <Title>로그인</Title>
             <Input 
-            label="아이디" 
+            label="이메일" 
             value={userId} 
-            onChangeText={text => setUserId(removeWhitespace(text))} 
+            onChangeText={_handleEmailChange} 
             onSubmitEditing={() => passwordRef.current.focus()} 
-            placeholder="아이디를 입력하세요" 
+            placeholder="이메일을 입력하세요" 
             returnKeyType="next" 
-            disabled={disabled}/>
+            />
+            <ErrorText>{errorMessage}</ErrorText>
             <Input 
             ref={passwordRef} 
             label="비밀번호" 
@@ -63,24 +83,25 @@ const Login = ({navigation}) => {
             returnKeyType="done" 
             isPassword />
 
+
             <Letter>
-            <LoginLetter
+            <CheckBoxLetter
             hasIcon={true}
             type={autoLogin? images.checked : images.unchecked}
             title="자동 로그인"
             onPress={() => setAutoLogin(!autoLogin)} />
 
-            <LoginLetter
+            <CheckBoxLetter
             hasIcon={false}
-            title="계정 찾기"
-            onPress={()=> {}}
+            title="아이디/비밀번호 찾기"
+            onPress={()=> {navigation.navigate("AccountFind")}}
             />
             </Letter>
-            <Button title="로그인" onPress={_handleLoginButtonPress} />
+            <Button title="로그인" onPress={_handleLoginButtonPress} disabled={disabled}/>
             <Button title="회원가입" onPress={() => {
                 navigation.navigate("Mode");
             }}
-            isFilled={false} />
+             />
         </Container>
         </KeyboardAwareScrollView>
     );

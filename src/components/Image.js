@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+//회원가입 이미지 등록
+import React, { useEffect, useState } from 'react';
 import { Platform, Alert} from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import styled from "styled-components/native";
@@ -7,8 +8,8 @@ import SmallButton from "./SmallButton";
 
 const Container = styled.View`
   flex-direction: column;
-  margin: 10px 0;
   width: 100%;
+  margin: 10px 0;
 `;
 
 const Label = styled.Text`
@@ -24,6 +25,8 @@ const StyledImage = styled.Image`
 `;
 
 const Image = ({url, label, onChangeImage}) => {
+
+    const [uploaded, setUploaded] = useState(false);
 
     useEffect(() => {
         (async () => {
@@ -48,6 +51,9 @@ const Image = ({url, label, onChangeImage}) => {
               if(!result.cancelled) { 
                 onChangeImage(result.uri);
               }
+
+              setUploaded(true);
+
         } catch(e) {
             Alert.alert('사진 오류', e.message);
         }
@@ -55,8 +61,8 @@ const Image = ({url, label, onChangeImage}) => {
     return(
         <Container>
             <Label>{label}</Label>
-            <SmallButton title="첨부파일" onPress={_handleEditButton} />
             {url && <StyledImage source={{ uri: url }} />}
+            <SmallButton title="첨부파일" onPress={_handleEditButton} uploaded={uploaded}/>
         </Container>
          
     );
