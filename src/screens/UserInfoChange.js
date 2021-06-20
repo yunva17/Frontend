@@ -1,10 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import styled from "styled-components/native";
-import {View, Modal, StyleSheet, TouchableOpacity, Alert} from "react-native";
+import {View, StyleSheet} from "react-native";
 import {ProfileImage, InfoText, Button, RadioButton} from '../components';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { removeWhitespace, validatePassword } from '../utils/common';
-import Postcode from '@actbase/react-daum-postcode';
 
 
 const Container = styled.View`
@@ -39,68 +38,60 @@ const RadioTitle = styled.Text`
     align-self: center;
 `;
 
-
-
-
+const ErrorText = styled.Text`
+    align-items: flex-start;
+    width: 100%;
+    height: 20px;
+    margin-top: 10px;
+    line-height: 20px;
+    color: ${({ theme }) => theme.errorText};
+`;
 
 
 const  UserInfoChange = () => {
 
     // 임의로 설정, 연동 후 기존 설정값 등록
     const [Photo, setPhoto] = useState(null);
-    const [address, setAddress] = useState('');
-    const [addressDetail, setAddressDetail] = useState('');
     const [phoneNumber,setPhoneNumber] = useState('');
-    const [userName, setuserName] = useState('안녕하세요');
+    const [userName, setuserName] = useState('');
     const [password, setPassword] = useState('');
-    const [age, setAge] = useState('23');
+    const [age, setAge] = useState('');
     const [gender, setGender] = useState('female');
+    const [errorMessage, setErrorMessage] = useState("");
+    const [uploaded, setUploaded] = useState(false);
 
-    // 닉네임 중복확인, 핸드폰 인증
-    const [isNameCheck, setNameCheck] = useState(false);
-    const [isPhoneCheck, setPhoneCheck] = useState(false);
-    const [isPassword, setIsPassword] = useState(false);
-
-    const [isModal, setModal] = useState(false);
-
-
-
-    const _handleChangeButtonPress = () => {
-        if(!address){
-            Alert.alert('','주소를 입력해주세요');
-            return;
-        }
-        if(!isPhoneCheck){
-            Alert.alert('','전화번호 인증을 해주세요');
-            return;
-        }
-        if (!userName) {
-            Alert.alert('','닉네임을 입력해주세요');
-            return;
-        }
-        if(!isNameCheck){
-            Alert.alert('','닉네임 중복확인을 해주세요');
-            return;
-        }
-        if(!password){
-            Alert.alert('','비밀번호를 설정해주세요');
-            return;
-        }
-        if(password){
-            if(!isPassword){
-                Alert.alert('','비밀번호를 설정해주세요');
-                return; 
+    const didMountRef = useRef();
+  
+    //에러 메세지 설정 
+    useEffect(() => {
+        if(didMountRef.current) {
+        let _errorMessage="";
+        if(uploaded){
+            _errorMessage="정보를 입력해주세요";
+            if(!userName){
+                _errorMessage = "닉네임을 입력하세요.";
+            }else if(!password){
+                _errorMessage = "비밀번호를 입력하세요.";
+            }else if(!validatePassword(password)){
+                _errorMessage = "비밀번호 조건을 확인하세요.";
+            }else if(!phoneNumber){
+                _errorMessage = "전화번호를 입력하세요.";
+            }else if(!age){
+                _errorMessage = "나이를 입력하세요.";
+            }
+            else {
+                _errorMessage = "";
             }
         }
-        if(!age){
-            Alert.alert('','나이를 입력해주세요');
-            return; 
+        setErrorMessage(_errorMessage);
+        }else {
+        didMountRef.current = true;
         }
-        
-    
+    },[userName, password, phoneNumber, uploaded]);
 
+    const _handleChangeButtonPress = () => {
+        setUploaded(true);
      };
-
     return (
         <Container>
             <KeyboardAwareScrollView
@@ -112,51 +103,7 @@ const  UserInfoChange = () => {
                 url={Photo}
                 onChangeImage={url => setPhoto(url)}
                 showButton />
-
-                {/* 주소 검색 후 상세 주소 입력 가능 */}
                 <InfoContainer>
-                    <InfoText
-                        label="주소"
-                        value={address}
-                        onChangeText={ text => setAddress(text)}
-                        placeholder="주소"
-                        returnKeyType= "done"
-                        isChanged
-                        showButton
-                        title="검색"
-                        editable={address === '' ? false : true}
-                        onPress={() => {setModal(true); setAddress("");}}
-                    />
-                    <Modal visible={isModal} transparent={true}>
-                        <TouchableOpacity style={styles.background} onPress={() => setModal(false)}/>
-                        <View style={styles.modal}>
-                            <Postcode
-                                style={{  width: 350, height: 450 }}
-                                jsOptions={{ animated: true, hideMapBtn: true }}
-                                onSelected={data => {
-                                setAddress(JSON.stringify(data.address).replace(/\"/g,''));
-                                setModal(false);
-                                }}
-                            />
-                        </View>
-                    </Modal>
-
-                    {/* 전화번호 인증 완료시 disabled 처리 */}
-                    <InfoText
-                        label="전화번호"
-                        value={phoneNumber}
-                        onChangeText={ text => setPhoneNumber(removeWhitespace(text))}
-                        placeholder="전화번호"
-                        returnKeyType= "done"
-                        isChanged
-                        keyboardType="number-pad"
-                        showButton
-                        title="인증"
-                        disabled={ phoneNumber.length === 11 ? false : true}
-                        onPress={()=>{setPhoneCheck(true)}}
-                        />
-                        
-
                     <InfoText
                         label="닉네임"
                         value={userName}
@@ -164,9 +111,6 @@ const  UserInfoChange = () => {
                         placeholder="닉네임"
                         returnKeyType= "done"
                         isChanged
-                        showButton
-                        title="적용"
-                        
                         />
                     <InfoText label="이메일" content="이메일주소"/>
                     <InfoText
@@ -177,16 +121,16 @@ const  UserInfoChange = () => {
                         returnKeyType= "done"
                         isChanged
                         isPassword
-                        showButton                                
-                        title="변경"
-                        disabled={validatePassword(password) ? false : true}
-                        onPress={()=> {
-                            setIsPassword(true);
-                            setPassword(password);
-                            editable=false;
-                        }}                 
+                    />
+                    <InfoText
+                        label="전화번호"
+                        value={phoneNumber}
+                        onChangeText={ text => setPhoneNumber(removeWhitespace(text))}
+                        placeholder="전화번호"
+                        returnKeyType= "done"
+                        isChanged
+                        keyboardType="number-pad"
                         />
-
                     <InfoText
                         label="나이"
                         value={age}
@@ -212,6 +156,7 @@ const  UserInfoChange = () => {
                                 onPress={() => setGender('male')}
                             />
                     </RowContainer>
+                    <ErrorText>{errorMessage}</ErrorText>
                 </InfoContainer>
                 
                 <CenterContainer>
