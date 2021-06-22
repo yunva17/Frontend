@@ -8,8 +8,7 @@ import SmallButton from "./SmallButton";
 
 const Container = styled.View`
   flex-direction: column;
-  width: 100%;
-  margin: 10px 0;
+  width: 100%;  
 `;
 
 const Label = styled.Text`
@@ -24,7 +23,7 @@ const StyledImage = styled.Image`
   height: 100px;
 `;
 
-const Image = ({url, label, onChangeImage}) => {
+const Image = ({title, url, label, onChangeImage, showImage, containerStyle}) => {
 
     const [uploaded, setUploaded] = useState(false);
 
@@ -59,10 +58,10 @@ const Image = ({url, label, onChangeImage}) => {
         }
       };
     return(
-        <Container>
-            <Label>{label}</Label>
-            {url && <StyledImage source={{ uri: url }} />}
-            <SmallButton title="첨부파일" onPress={_handleEditButton} uploaded={uploaded}/>
+        <Container style={containerStyle}>
+            {label && <Label>{label}</Label>}
+            {showImage && url && <StyledImage source={{ uri: url }} />}
+            <SmallButton title={title} onPress={_handleEditButton} uploaded={uploaded}/>
         </Container>
          
     );

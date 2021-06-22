@@ -1,8 +1,7 @@
-import React from 'react';
+import React,{useState} from 'react';
+import { withDecay } from 'react-native-reanimated';
 import styled from "styled-components/native";
-import MypageButton from '../components/MypageButton';
-import ProfileImage from '../components/ProfileImage';
-import SmallButton from '../components/SmallButton';
+import {MypageButton,ProfileImage,SmallButton, Image} from '../components'
 
 const Container = styled.View`
     background-color: ${({theme})=> theme.background};
@@ -44,12 +43,15 @@ const Username = styled.Text`
 `;
 
 const LogoutContainer = styled.View`
+    flex-direction: row;
     align-items: flex-end;
     justify-content: flex-start;
-    margin-right: 20px;
 `;
 
 const Mypage_Store = ( {navigation} ) => {
+
+    const [document, setDocument] = useState('');
+
     return (
         <Container>
             
@@ -67,7 +69,12 @@ const Mypage_Store = ( {navigation} ) => {
                 </ProfileButton>
                 </ProfileContainer>
                 <LogoutContainer>
-                     <SmallButton title="로그아웃" onPress={ () => {} } containerStyle={{marginTop: 0}} />
+                    <Image title="서류등록" 
+                            url={document}
+                            onChangeImage={url => setDocument(url)}
+                            containerStyle={{width: '70%',}}
+                        />
+                    <SmallButton title="로그아웃" onPress={ () => {} } containerStyle={{width: '30%',}} />
                 </LogoutContainer>
                
             </InfoContainer>

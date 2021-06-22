@@ -12,8 +12,5 @@ export const validatePassword = password => {
     const regex = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
     return regex.test(password);
 };
-<<<<<<< HEAD
-=======
  
 
->>>>>>> upstream/feature#9/UserInfo

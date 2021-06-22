@@ -6,6 +6,7 @@ import { theme } from '../theme';
 import MypageStack from './MypageStack';
 import RegisterAuctionStack from "./RegisterAuctionStack";
 import MainStack from './MainStack';
+import AuctionStack from './AuctionStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -72,7 +73,7 @@ const MainTab = ({navigation}) => {
             />
             <Tab.Screen 
                 name = "경매" 
-                component={Auction} 
+                component={AuctionStack} 
                 options={{
                     tabBarIcon: ({ focused }) =>
                         TabBarIcon({
