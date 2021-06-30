@@ -1,3 +1,4 @@
+//로그인 화면의 자동로그인, 계정찾기 버튼 (버튼아이콘 + 텍스트)
 import React from 'react';
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
@@ -12,8 +13,7 @@ const Container = styled.TouchableOpacity`
 `;
 
 const Title = styled.Text`
-    height: 30px;
-    line-height: 30px;
+    line-height: 23px;
     font-size: 16px
     font-weight: bold;
     color: ${({theme})=> theme.text};
@@ -25,7 +25,7 @@ const Icon = styled.Image`
     height: 25px;
 `;
 
-const LoginLetter = ({hasIcon, type, title, onPress}) => {
+const CheckBoxLetter = ({hasIcon, type, title, onPress}) => {
     return (
         <Container onPress={onPress}>
             <Title>{title}</Title>
@@ -34,15 +34,15 @@ const LoginLetter = ({hasIcon, type, title, onPress}) => {
     );
 };
 
-LoginLetter.defaultProps ={
+CheckBoxLetter.defaultProps ={
     hasIcon: false,
 };
 
-LoginLetter.propTypes = {
+CheckBoxLetter.propTypes = {
     hasIcon: PropTypes.bool,
     type: PropTypes.oneOf(Object.values(images)),
     title: PropTypes.string,
     onPress: PropTypes.func.isRequired,
 };
 
-export default LoginLetter;
+export default CheckBoxLetter;
