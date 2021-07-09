@@ -26,12 +26,8 @@ const AuthStack = () => {
             
             <Stack.Screen name="Login" component={Login} options={{headerBackTitle: false, headerTitle: " "}} />
             <Stack.Screen name="Signup" component={Signup} options={{headerBackTitle: false, headerTitle: " "}}/>
-<<<<<<< HEAD
-            <Stack.Screen name="Mode" component={Mode} options={{headerShown: false}}/>
-=======
             <Stack.Screen name="Mode" component={Mode} options={{headerBackTitle: false, headerTitle:" "}}/>
             <Stack.Screen name = "AccountFind" component={AccountFind} options={{headerBackTitle: false, headerTitle:" "}}/>
->>>>>>> 5ab8a157a1f549411e6a9f2ff2979f7957b61837
         </Stack.Navigator>
     );
 };

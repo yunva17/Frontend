@@ -1,20 +1,14 @@
 import React, {useState} from 'react';
-import {notices} from "../utils/data";
 import styled from "styled-components/native";
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 import {Reviews} from "../utils/data";
-import {Dimensions} from "react-native";
-
+import {Dimensions, FlatList} from "react-native";
 
 const WIDTH = Dimensions.get("screen").width;
 const HEIGHT = Dimensions.get("screen").height;
 
-const List = styled.ScrollView`
-    flex: 1;
-`;
-
 const InfoContainer = styled.View`
+    background-color: ${({ theme }) => theme.background};
     padding: 0 1%;
     padding-top: 3%;
     padding-bottom: 3%;
@@ -71,6 +65,21 @@ const StarContainer = styled.View`
     align-items: center;
 `;
 
+const ChangeContainer = styled.View`
+    flex: 1; 
+    alignItems: flex-end;
+    justify-content: flex-end;
+    margin-bottom: 5px;
+    flex-direction: row;
+`;
+
+const ChangeText = styled.Text`
+    font-weight: bold;
+    font-size: 16px;
+    color: ${({theme})=> theme.titleColor};
+    margin-right: 5px;
+`;
+
 const Stars = ({score}) => {
     var list = [];
     var one = parseInt(score);
@@ -93,10 +102,14 @@ const Stars = ({score}) => {
     return list;
 };
 
-const ReviewSet = ({review: {id, date, name, score, ment, src, userSrc}}) => {
+
+const ReviewSet = ({review: {id, date, name, score, ment, src, userSrc}, onPress }) => {
     return (
         <InfoContainer>
             <DefaultText>{date}</DefaultText>
+            <ChangeContainer>
+                <ChangeText onPress={onPress}>삭제</ChangeText>
+            </ChangeContainer>
             <UserInfoContainer>
                 <UserContainer>
                     <UserImage source={{uri: userSrc}}/>
@@ -113,18 +126,22 @@ const ReviewSet = ({review: {id, date, name, score, ment, src, userSrc}}) => {
     );
 };
 
-const Review = ({navigation, route}) => {
+const ReviewManage = () => {
+    const [reviews, setReviews] = useState(Reviews);
 
+    const _onRemove = id => {
+        setReviews(reviews.filter(review => review.id !== id));
+    };
+
+    
     return (
-        <KeyboardAwareScrollView
-        extraScrollHeight={20}>
-            <List>
-               {Reviews.map(review => (
-                   <ReviewSet key={review['id'].toString()} review={review}/>
-               ))} 
-            </List>
-        </KeyboardAwareScrollView>
+        <FlatList 
+            keyExtractor={item => item['id'].toString()}
+            data={reviews}
+            renderItem={({item}) => (
+                <ReviewSet key={item['id'].toString()} review={item} onPress={() => _onRemove(item['id'])}/>
+            )}/>
     );
 };
 
-export default Review;
+export default ReviewManage;

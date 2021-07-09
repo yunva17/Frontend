@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from "styled-components/native";
 import { createStackNavigator } from '@react-navigation/stack';
-import { Mypage_Store, Mypage_User, StoreInfo, StoreInfoChange, UserInfo, UserInfoChange } from "../screens";
+import { Mypage_Store, Mypage_User, StoreInfo, StoreInfoChange, UserInfo, UserInfoChange, StoreManage, ReviewManage
+        ,ChatManage, Bookmark, Message, AuctionDetail  } from "../screens";
 
 
 const Stack = createStackNavigator();
@@ -11,7 +12,7 @@ const MypageStack = () => {
 
     return (
         <Stack.Navigator
-            initialRouteName="Mypage_User"
+            initialRouteName="Mypage_Store"
             screenOptions={{
                 headerTitleAlign: "center",
                 cardStyle: { backgroundColor: theme.backgroundColor },
@@ -26,6 +27,14 @@ const MypageStack = () => {
             <Stack.Screen name="StoreInfoChange" component={StoreInfoChange} options={{ headerBackTitle: false, headerTitle: "회원 정보 수정", headerTitleAlign: 'center', headerTitleStyle: { fontSize: 20, fontWeight: 'normal' }, }} />
             <Stack.Screen name="UserInfo" component={UserInfo} options={{ headerBackTitle: false, headerTitle: "회원 정보", headerTitleAlign: 'center', headerTitleStyle: { fontSize: 20, fontWeight: 'normal' }, }} />
             <Stack.Screen name="UserInfoChange" component={UserInfoChange} options={{ headerBackTitle: false, headerTitle: "회원 정보 수정", headerTitleAlign: 'center', headerTitleStyle: { fontSize: 20, fontWeight: 'normal' }, }} />
+            <Stack.Screen name="StoreManage" component={StoreManage} options={{ headerBackTitle: false, headerTitle: "업체관리", headerTitleAlign: 'center', headerTitleStyle: { fontSize: 20, fontWeight: 'normal' }, }} />
+            <Stack.Screen name="ReviewManage" component={ReviewManage} options={{ headerBackTitle: false, headerTitle: "리뷰관리", headerTitleAlign: 'center', headerTitleStyle: { fontSize: 20, fontWeight: 'normal' }, }} />
+            <Stack.Screen name="ChatManage" component={ChatManage} options={{ headerBackTitle: false, headerTitle: "채팅관리", headerTitleAlign: 'center', headerTitleStyle: { fontSize: 20, fontWeight: 'normal' }, }} />
+            <Stack.Screen name="Bookmark" component={Bookmark} options={{ headerBackTitle: false, headerTitle: "즐겨찾기", headerTitleAlign: 'center', headerTitleStyle: { fontSize: 20, fontWeight: 'normal' }, }} />
+            <Stack.Screen name="Message" component={Message} options={{ headerBackTitle: false, headerTitle: "메세지", headerTitleAlign: 'center', headerTitleStyle: { fontSize: 20, fontWeight: 'normal' }, }} />
+            <Stack.Screen name="AuctionDetail" component={AuctionDetail} options={{ headerBackTitle: false, headerTitle: "메세지", headerTitleAlign: 'center', headerTitleStyle: { fontSize: 20, fontWeight: 'normal' }, }} />
+
+            
         </Stack.Navigator>
     );
 }

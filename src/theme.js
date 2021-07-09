@@ -58,4 +58,7 @@ export const theme = {
     kakaoColor: color.kakao,
     naverColor: color.naver,
     kakaoTextColor: color.kakaoText,
+
+    sendButtonActivate: color.blue,
+    sendButtonInactivate: color.grey,
 };

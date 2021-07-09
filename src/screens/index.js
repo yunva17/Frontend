@@ -19,8 +19,13 @@ import UserInfoChange from "./UserInfoChange";
 import AuctionFinished from "./AuctionFinished";
 import AuctionBid from './AuctionBid';
 import AuctionDetail from './AuctionDetail';
+import StoreManage from "./StoreManage";
+import ReviewManage from './ReviewManage';
+import ChatManage from './ChatManage';
+import Bookmark from './Bookmark';
 
 export {
     AuctionDetail, AuctionBid, AuctionFinished, UserInfoChange, UserInfo, Mypage_User, Mypage_Store, Review, StoreInfoChange,
-    Message, Login, Mode, Notice, Signup, Main, AccountFind, RegisterAuction, Auction, Store, StoreDetail, StoreInfo
+    Message, Login, Mode, Notice, Signup, Main, AccountFind, RegisterAuction, Auction, Store, StoreDetail, StoreInfo, StoreManage,
+    ReviewManage,ChatManage,Bookmark
 };
