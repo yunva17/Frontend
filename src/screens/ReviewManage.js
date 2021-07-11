@@ -67,7 +67,7 @@ const StarContainer = styled.View`
 
 const ChangeContainer = styled.View`
     flex: 1; 
-    alignItems: flex-end;
+    align-items: flex-end;
     justify-content: flex-end;
     margin-bottom: 5px;
     flex-direction: row;

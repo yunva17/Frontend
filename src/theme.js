@@ -63,4 +63,6 @@ export const theme = {
     sendButtonInactivate: color.grey,
 
     opacityTextColor: color.opacityDark,
+
+    chatTextColor: "#deeffc",
 };

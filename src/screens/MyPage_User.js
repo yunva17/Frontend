@@ -73,15 +73,24 @@ const Mypage_User = ( {navigation} ) => {
             </InfoContainer>
             
             <IconContainer>
-                <MypageButton title='이용내역' name='list-alt' />
+                <MypageButton title='이용내역' name='list-alt'   
+                    onPress={() => {
+                        navigation.navigate("UseManage");
+                }} />
                 <MypageButton title='리뷰관리' name='thumb-up'   
                     onPress={() => {
                         navigation.navigate("ReviewManage");
                 }}/>
-                <MypageButton title='공고관리' name='description' />
+                <MypageButton title='공고관리' name='description'
+                    onPress={() => {
+                        navigation.navigate("BidManageTab");
+                }}  />
             </IconContainer>
             <IconContainer>
-                <MypageButton title='결제관리' name='payment' /> 
+                <MypageButton title='결제관리' name='payment'   
+                    onPress={() => {
+                        navigation.navigate("PayManage");
+                }} /> 
                 <MypageButton title='채팅관리' name='chat'  
                     onPress={() => {
                         navigation.navigate("ChatManage");

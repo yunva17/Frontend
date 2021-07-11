@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { withDecay } from 'react-native-reanimated';
 import styled from "styled-components/native";
 import { MypageButton, ProfileImage, SmallButton, Image } from '../components'
 
