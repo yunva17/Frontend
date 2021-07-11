@@ -61,4 +61,6 @@ export const theme = {
 
     sendButtonActivate: color.blue,
     sendButtonInactivate: color.grey,
+
+    opacityTextColor: color.opacityDark,
 };

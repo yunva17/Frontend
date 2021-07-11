@@ -80,7 +80,10 @@ const Mypage_Store = ({ navigation }) => {
             </InfoContainer>
 
             <IconContainer>
-                <MypageButton title='입찰내역' name='description' />
+                <MypageButton title='입찰내역' name='description'  
+                    onPress={() => {
+                        navigation.navigate("BidManageTab");
+                    }} />
                 <MypageButton title='업체관리' name='home-work'  
                     onPress={() => {
                         navigation.navigate("StoreManage");

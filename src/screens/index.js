@@ -23,9 +23,11 @@ import StoreManage from "./StoreManage";
 import ReviewManage from './ReviewManage';
 import ChatManage from './ChatManage';
 import Bookmark from './Bookmark';
+import BidManage from "./BidManage";
+import BidManageFinished from './BidManageFinished';
 
 export {
     AuctionDetail, AuctionBid, AuctionFinished, UserInfoChange, UserInfo, Mypage_User, Mypage_Store, Review, StoreInfoChange,
     Message, Login, Mode, Notice, Signup, Main, AccountFind, RegisterAuction, Auction, Store, StoreDetail, StoreInfo, StoreManage,
-    ReviewManage,ChatManage,Bookmark
+    ReviewManage,ChatManage,Bookmark,BidManage,BidManageFinished,
 };

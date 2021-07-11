@@ -115,10 +115,10 @@ const ReviewSet = ({review: {id, date, name, score, ment, src, userSrc}, onPress
                     <UserImage source={{uri: userSrc}}/>
                     <TitleText>{name}</TitleText>
                 </UserContainer>
-                    <StarContainer>
-                        <TitleText>별점: </TitleText>
-                        <Stars score={score}/>
-                    </StarContainer>
+                <StarContainer>
+                    <TitleText>별점: </TitleText>
+                    <Stars score={score}/>
+                </StarContainer>
             </UserInfoContainer>
             <ReviewImage source={{uri: src}}/>
             <MentContainer><DefaultText>{ment}</DefaultText></MentContainer>
@@ -139,7 +139,7 @@ const ReviewManage = () => {
             keyExtractor={item => item['id'].toString()}
             data={reviews}
             renderItem={({item}) => (
-                <ReviewSet key={item['id'].toString()} review={item} onPress={() => _onRemove(item['id'])}/>
+                <ReviewSet review={item} onPress={() => _onRemove(item['id'])}/>
             )}/>
     );
 };

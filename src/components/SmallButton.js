@@ -20,7 +20,7 @@ const Title = styled.Text`
     color: ${({theme, isFilled}) => isFilled? theme.buttonTextColor : theme.buttonUnfilledTitle };
 `;
 
-const SmallButton = ({containerStyle, title, onPress, isFilled, disabled, uploaded}) => {
+const SmallButton = ({showButton, containerStyle, title, onPress, isFilled, disabled, uploaded}) => {
     return (
         <Container 
         style={containerStyle} 

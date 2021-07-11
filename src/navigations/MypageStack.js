@@ -2,7 +2,8 @@ import React, { useContext, useState } from 'react';
 import { ThemeContext } from "styled-components/native";
 import { createStackNavigator } from '@react-navigation/stack';
 import { Mypage_Store, Mypage_User, StoreInfo, StoreInfoChange, UserInfo, UserInfoChange, StoreManage, ReviewManage
-        ,ChatManage, Bookmark, Message, AuctionDetail  } from "../screens";
+        ,ChatManage, Bookmark, Message, AuctionDetail, AuctionBid  } from "../screens";
+import BidManageTab from './BidManageTab';
 
 
 const Stack = createStackNavigator();
@@ -32,9 +33,10 @@ const MypageStack = () => {
             <Stack.Screen name="ChatManage" component={ChatManage} options={{ headerBackTitle: false, headerTitle: "채팅관리", headerTitleAlign: 'center', headerTitleStyle: { fontSize: 20, fontWeight: 'normal' }, }} />
             <Stack.Screen name="Bookmark" component={Bookmark} options={{ headerBackTitle: false, headerTitle: "즐겨찾기", headerTitleAlign: 'center', headerTitleStyle: { fontSize: 20, fontWeight: 'normal' }, }} />
             <Stack.Screen name="Message" component={Message} options={{ headerBackTitle: false, headerTitle: "메세지", headerTitleAlign: 'center', headerTitleStyle: { fontSize: 20, fontWeight: 'normal' }, }} />
-            <Stack.Screen name="AuctionDetail" component={AuctionDetail} options={{ headerBackTitle: false, headerTitle: "메세지", headerTitleAlign: 'center', headerTitleStyle: { fontSize: 20, fontWeight: 'normal' }, }} />
+            <Stack.Screen name="AuctionDetail" component={AuctionDetail} options={{ headerBackTitle: false, headerTitle: "", headerTitleAlign: 'center', headerTitleStyle: { fontSize: 20, fontWeight: 'normal' }, }} />
+            <Stack.Screen name="BidManageTab" component={BidManageTab} options={{ headerBackTitle: false, headerTitle: "입찰 내역", headerTitleAlign: 'center', headerTitleStyle: { fontSize: 20, fontWeight: 'normal' }, }} />
+            <Stack.Screen name="AuctionBid" component={AuctionBid} options={{ headerBackTitle: false, headerTitle: "공고 수정", headerTitleAlign: 'center', headerTitleStyle: { fontSize: 20, fontWeight: 'normal' }, }} />
 
-            
         </Stack.Navigator>
     );
 }

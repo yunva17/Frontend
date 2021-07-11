@@ -28,13 +28,13 @@ const TitleContainer = styled.View`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 3%;
+
 `;
 
 const StyledImage = styled.Image`
     background-color: ${({theme}) => theme.imageBackground};
-    height: 85;
-    width: 85;
+    height: 85px;
+    width: 85px;
     border-radius: ${({ rounded }) => (rounded ? 50 : 0)}px;
 `;
 
@@ -44,10 +44,6 @@ const NameTitle = styled.Text`
     color: ${({theme})=> theme.text};
 `;
 
-const TimeText = styled.Text`
-    font-size: 13px;
-    color: ${({theme})=> theme.text};
-`;
 
 const DescText = styled.Text`
     font-size: 15px;
@@ -55,7 +51,7 @@ const DescText = styled.Text`
     color: ${({theme})=> theme.text};
 `;
 
-const Alert = ({item: {id, src, name, menu, type, location}, onPress, onStarPress}) => {
+const Item = ({item: {id, src, name, menu, type, location}, onPress, onStarPress}) => {
     return (
         <AlertContainer onPress={onPress}>
             <ImageContainer>
@@ -90,7 +86,7 @@ const Bookmark = ({navigation}) => {
             keyExtractor={item => item['id'].toString()}
             data={data}
             renderItem={({item}) => (
-                <Alert key={item['id'].toString()} item={item} 
+                <Item item={item} 
                 onStarPress={() => _onRemove(item['id'])}
                 onPress = {() => {
                     navigation.navigate("AuctionDetail");
