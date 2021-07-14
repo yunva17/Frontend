@@ -103,12 +103,13 @@ const Stars = ({score}) => {
 };
 
 
-const ReviewSet = ({review: {id, date, name, score, ment, src, userSrc}, onPress }) => {
+const ReviewSet = ({review: {id, date, name, score, ment, src, userSrc}, onChange, onRemove, isUser }) => {
     return (
         <InfoContainer>
             <DefaultText>{date}</DefaultText>
             <ChangeContainer>
-                <ChangeText onPress={onPress}>삭제</ChangeText>
+                {isUser && <ChangeText onPress={onChange}>수정</ChangeText>}
+                <ChangeText onPress={onRemove}>삭제</ChangeText>
             </ChangeContainer>
             <UserInfoContainer>
                 <UserContainer>
@@ -126,8 +127,14 @@ const ReviewSet = ({review: {id, date, name, score, ment, src, userSrc}, onPress
     );
 };
 
-const ReviewManage = () => {
+const ReviewManage = ({navigation, route}) => {
     const [reviews, setReviews] = useState(Reviews);
+
+    const [isUser, setIsUser] = useState(route.params.isUser);
+
+    const _onChange = () => {
+        navigation.navigate("ReviewWrite");
+    }
 
     const _onRemove = id => {
         setReviews(reviews.filter(review => review.id !== id));
@@ -139,7 +146,10 @@ const ReviewManage = () => {
             keyExtractor={item => item['id'].toString()}
             data={reviews}
             renderItem={({item}) => (
-                <ReviewSet review={item} onPress={() => _onRemove(item['id'])}/>
+                <ReviewSet key = {item['id'].toString()} review={item} 
+                    isUser={isUser}
+                    onChange={_onChange}
+                    onRemove={() => _onRemove(item['id'])}/>
             )}/>
     );
 };

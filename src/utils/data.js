@@ -387,7 +387,7 @@ export const messages =[
     },
 ];
 
-export const bookmarks =[
+export const auctionBookmarks =[
     {
         id: 0,
         scr: "",
@@ -418,6 +418,37 @@ export const bookmarks =[
         name: "공고 이름",
         menu: "양식",
         type: "가족 5명",
+        location: "00동",
+    },
+];
+
+export const storeBookmarks =[
+    {
+        id: 0,
+        scr: "",
+        name: "가게 이름",
+        menu: "한식",
+        location: "00동",
+    },
+    {
+        id: 1,
+        scr: "",
+        name: "가게 이름",
+        menu: "일식",
+        location: "00동",
+    },
+    {
+        id: 2,
+        scr: "",
+        name: "가게 이름",
+        menu: "한식",
+        location: "00동",
+    },
+    {
+        id: 3,
+        scr: "",
+        name: "가게 이름",
+        menu: "양식",
         location: "00동",
     },
 ];
@@ -494,5 +525,62 @@ export const AuctionList = [
         bookTime: "2021/07/01 12:30PM",
         registerTime: "2021/07/01 12:30PM",
         bidsuccess: false,
+    },
+];
+
+export const UseList = [
+    {
+        id: 0,
+        date: "2020-04-27 오후 4시",
+        name: "가게이름0",
+        src: "",
+        menu: "제육볶음",
+        bidPrice: 250000,
+        reviewUploaded : false,
+    },
+    {
+        id: 1,
+        date: "2020-04-26 오전 9시",
+        name: "가게이름1",
+        src: "",
+        menu: "회 정식",
+        bidPrice: 470000,
+        reviewUploaded : false,
+    },
+    {
+        id: 2,
+        date: "2020-04-25 오후 8시",
+        name: "가게이름2",
+        src: "",
+        menu: "돼지갈비",
+        bidPrice: 470000,
+        reviewUploaded : true,
+    },
+    {
+        id: 3,
+        date: "2020-04-25 오후 4시",
+        name: "가게이름3",
+        src: "",
+        menu: "갈비탕",
+        bidPrice: 250000,
+        reviewUploaded : false,
+    },
+    {
+        id: 4,
+        date: "2020-04-25 오전 10시",
+        name: "가게이름4",
+        src: "파스타",
+        menu: 4.2,
+        bidPrice: 250000,
+        reviewUploaded : true,
+    },
+    {
+        id: 5,
+        date: "2020-04-24 오후 4시",
+        name: "가게이름5",
+        src: "",
+        menu: "짜장면",
+        bidPrice: 150000,
+        reviewUploaded : false,
     },
 ];

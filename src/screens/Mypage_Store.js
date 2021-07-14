@@ -81,7 +81,7 @@ const Mypage_Store = ({ navigation }) => {
             <IconContainer>
                 <MypageButton title='입찰내역' name='description'  
                     onPress={() => {
-                        navigation.navigate("BidManageTab");
+                        navigation.navigate("BidManageTab",{ isUser: false });
                     }} />
                 <MypageButton title='업체관리' name='home-work'  
                     onPress={() => {
@@ -89,7 +89,7 @@ const Mypage_Store = ({ navigation }) => {
                     }}/>
                 <MypageButton title='리뷰관리' name='thumb-up' 
                     onPress={() => {
-                        navigation.navigate("ReviewManage");
+                        navigation.navigate("ReviewManage",{ isUser: false });
                 }}/>
             </IconContainer>
             <IconContainer>
@@ -100,7 +100,7 @@ const Mypage_Store = ({ navigation }) => {
                 }} />
                 <MypageButton title='즐겨찾기' name='star' 
                     onPress={() => {
-                        navigation.navigate("Bookmark");
+                        navigation.navigate("Bookmark",{ isUser: false });
                 }} />
             </IconContainer>
         </Container>

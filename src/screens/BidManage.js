@@ -66,7 +66,7 @@ const ChangeText = styled.Text`
 
 
 const Item = ({item: {id, title, type, count, region, preMenu, prePrice, bookTime, registerTime}, 
-                onPress, onChange, onRemove}) => {
+                onPress, onChange, onRemove, isUser}) => {
     return (
         <View>
             <ItemContainer onPress={onPress} >
@@ -95,14 +95,22 @@ const Item = ({item: {id, title, type, count, region, preMenu, prePrice, bookTim
     );
 };
 
-const BidManage = ({navigation}) => {
+const BidManage = ({navigation, route}) => {
 
     const [data, setData ] = useState(AuctionList);
+
+    const [isUser, setIsUser] = useState(route.params.isUser);
 
     const _onAuctionPress = item => {navigation.navigate("AuctionDetail",{id: item['id']})};
 
     // 입찰내역 수정으로 이동
-    const _onChange = item => {navigation.navigate("AuctionBid", {id: item['id']})};
+    const _onChange = item => {
+        if(isUser)
+            navigation.navigate("RegisterAuction", {id: item['id']});
+        else
+            navigation.navigate("AuctionBid", {id: item['id']});
+        
+    };
 
     const _onRemove = id => {
         setData(data.filter(data => data.id !== id));
@@ -118,6 +126,7 @@ const BidManage = ({navigation}) => {
                 data={data} 
                 renderItem={({item}) => (
                     <Item item={item} 
+                        isUser={isUser}
                         onPress={()=> _onAuctionPress(item)}
                         onChange={()=> _onChange(item)}
                         onRemove={() => _onRemove(item['id'])}

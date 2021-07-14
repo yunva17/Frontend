@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {bookmarks} from "../utils/data";
+import {auctionBookmarks, storeBookmarks} from "../utils/data";
 import styled from "styled-components/native";
 import {FlatList} from 'react-native';
 import {MaterialCommunityIcons} from "@expo/vector-icons";
@@ -72,8 +72,11 @@ const Item = ({item: {id, src, name, menu, type, location}, onPress, onStarPress
 };
 
 
-const Bookmark = ({navigation}) => {
-    const [data, setData] = useState(bookmarks);
+const Bookmark = ({navigation, route}) => {
+    const [isUser, setIsUser] = useState(route.params.isUser);
+
+    const [data, setData] = useState(auctionBookmarks);
+    
 
     const _onRemove = id => {
         setData(data.filter(item => item.id !== id));

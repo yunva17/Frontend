@@ -79,11 +79,11 @@ const Mypage_User = ( {navigation} ) => {
                 }} />
                 <MypageButton title='리뷰관리' name='thumb-up'   
                     onPress={() => {
-                        navigation.navigate("ReviewManage");
+                        navigation.navigate("ReviewManage",{ isUser: true });
                 }}/>
                 <MypageButton title='공고관리' name='description'
                     onPress={() => {
-                        navigation.navigate("BidManageTab");
+                        navigation.navigate("BidManageTab", { isUser: true });
                 }}  />
             </IconContainer>
             <IconContainer>
@@ -97,7 +97,7 @@ const Mypage_User = ( {navigation} ) => {
                 }}/>
                 <MypageButton title='즐겨찾기' name='star'  
                     onPress={() => {
-                        navigation.navigate("Bookmark");
+                        navigation.navigate("Bookmark",{ isUser: true });
                 }}/>
             </IconContainer>
         </Container>

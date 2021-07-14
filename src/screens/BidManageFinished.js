@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from "styled-components/native";
 import {Dimensions, FlatList} from "react-native";
 import {AuctionList} from "../utils/data";
@@ -62,7 +62,7 @@ const TitleContainer = styled.View`
 `;
 
 
-const Item = ({item: {id, title, type, count, region, preMenu, prePrice, bookTime, registerTime, bidsuccess}, onPress}) => {
+const Item = ({item: {id, title, type, count, region, preMenu, prePrice, bookTime, registerTime, bidsuccess}, onPress,isUser}) => {
     return (
         <ItemContainer onPress={onPress} >
             <TimeTextContiner>
@@ -71,7 +71,9 @@ const Item = ({item: {id, title, type, count, region, preMenu, prePrice, bookTim
             <ItemBox>
                 <TitleContainer>
                     <ContentTitleText>{title}</ContentTitleText>
+                    { !isUser &&
                     <BidResultText color = { bidsuccess ? "green" : "red"}>{ bidsuccess ? "낙찰" : "실패"}</BidResultText>
+                    }
                 </TitleContainer>
                 
                 <ContentText>단체 유형: {type}({count}명)</ContentText>
@@ -84,7 +86,9 @@ const Item = ({item: {id, title, type, count, region, preMenu, prePrice, bookTim
     );
 };
 
-const BidManageFinished = ({navigation}) => {
+const BidManageFinished = ({navigation, route}) => {
+
+    const [isUser, setIsUser] = useState(route.params.isUser);
 
     const _onAuctionPress = item => {
         navigation.navigate("AuctionDetail",{id: item['id']});
@@ -96,7 +100,9 @@ const BidManageFinished = ({navigation}) => {
                     keyExtractor={item => item['id'].toString()}
                     data={AuctionList} 
                     renderItem={({item}) => (
-                        <Item item={item} onPress={()=> _onAuctionPress(item)} />
+                        <Item item={item} 
+                            onPress={()=> _onAuctionPress(item)} 
+                            isUser={isUser}/>
                     )}/>
             </BidContainer>
 
